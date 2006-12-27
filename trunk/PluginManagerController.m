@@ -31,6 +31,12 @@
 	return self;
 }
 
+- (void) awakeFromNib
+{
+	//FIXME: add a delay here so that the window appears before the lag.
+	[self doInit];
+}
+
 - (void) doInit
 {
 	//FIXME: This is a hack because, for some reason I don't understand, init is called, but has no effect.
