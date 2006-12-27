@@ -1,0 +1,23 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSLevelIndicator; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = Plugin; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PluginList; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PluginManager; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {InstallPlugins = id; initialiseGUI = id; selectOutdated = id; }; 
+            CLASS = PluginManagerController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                markedCount = NSTextField; 
+                pluginList = NSTableView; 
+                progressText = NSTextView; 
+                statusText = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = UrlGrabber; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}
