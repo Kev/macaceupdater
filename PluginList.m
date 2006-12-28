@@ -27,6 +27,9 @@
 {
 	[super init];
 	plugins_ = [[NSMutableArray alloc] initWithCapacity:500];
+	activeSet_ = nil;
+	subSet_ = nil;
+	[self searchPluginsForString:@""];
 	return self;
 }
 
@@ -42,7 +45,7 @@
 	//NSLog([NSString stringWithFormat: @"Getting Row %i / %i", rowIndex, [plugins_ count]]);
 	
 	
-    plugin = [plugins_ objectAtIndex:rowIndex];
+    plugin = [activeSet_ objectAtIndex:rowIndex];
 	if ( plugin == nil ) {
 		NSLog(@"Emergency - a nil plugin is in the list");
 	}
@@ -104,9 +107,9 @@
 {
     Plugin* plugin;
  
-    NSParameterAssert(rowIndex >= 0 && rowIndex < [plugins_ count]);
+    NSParameterAssert(rowIndex >= 0 && rowIndex < [activeSet_ count]);
 	NSParameterAssert([[aTableColumn identifier] isEqualToString: @"install" ]);
-    plugin = [plugins_ objectAtIndex:rowIndex];
+    plugin = [activeSet_ objectAtIndex:rowIndex];
 	
 	bool enable = ([[NSNumber numberWithInt:NSOnState] isEqualTo:anObject]);
 	
@@ -116,7 +119,7 @@
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTable
 {
-    return [plugins_ count];
+    return [activeSet_ count];
 }
 
 - (void)loadFromUrl:(NSURL*) url
@@ -133,17 +136,17 @@
 		//NSLog(line);
 		Plugin* plugin = [[Plugin alloc] initFromString:line withBaseUrl:url];
 		
-		NSLog(line);
+		//NSLog(line);
 		if ( plugin != nil) {
-			NSLog(@"Adding line");
-			NSLog([plugin name]);
+			//NSLog(@"Adding line");
+			//NSLog([plugin name]);
 			[plugins_ addObject: [plugin retain]];
 		} else {
-			NSLog(@"Nil pointer from line:");
+			//NSLog(@"Nil pointer from line:");
 		}
 	}
-	NSLog(@"Added this many plugins:");
-	NSLog([NSString stringWithFormat:@"%d", [plugins_ count]]);
+	//NSLog(@"Added this many plugins:");
+	//NSLog([NSString stringWithFormat:@"%d", [plugins_ count]]);
 }
 
 - (void) selectOutdated
@@ -158,12 +161,36 @@
 
 - (Plugin*) objectAtIndex: (int) index
 {
-	return [plugins_ objectAtIndex:index];
+	return [activeSet_ objectAtIndex:index];
 }
 
 - (int) count
 {
 	return [plugins_ count];
+}
+
+- (void) searchPluginsForString: (NSString*) searchString
+{
+	NSEnumerator *e = [plugins_ objectEnumerator];
+    NSString *nameString, *descriptionString;
+    Plugin* plugin;
+
+    if ( [searchString length] == 0 ) {
+		activeSet_ = plugins_;
+		return;
+    }
+
+    [subSet_ release];
+    subSet_ = [[NSMutableArray alloc] init];
+
+    while ( plugin = [e nextObject] ) {
+		nameString = [[plugin name] lowercaseString];
+		descriptionString = [[plugin description] lowercaseString];
+	//hasPrefix vs compare vs rangeOfString
+	if ( ([nameString rangeOfString:searchString].location != NSNotFound) || ([descriptionString rangeOfString:searchString].location != NSNotFound))
+	    [subSet_ addObject:plugin];
+    }
+    activeSet_ = subSet_;
 }
 
 @end

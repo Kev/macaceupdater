@@ -13,8 +13,9 @@
                 mainWindow = id; 
                 markedCount = NSTextField; 
                 pluginList = NSTableView; 
-                preferencesWindow = id; 
+                prefsWindow = id; 
                 progressText = NSTextView; 
+                searchItemView = id; 
                 statusText = NSTextField; 
             }; 
             SUPERCLASS = NSObject; 
