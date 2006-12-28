@@ -116,7 +116,7 @@
 	//NSLog(dirName);
 	BOOL isDirectory=false;
 	if (!([[NSFileManager defaultManager] fileExistsAtPath: dirName isDirectory:&isDirectory ] && isDirectory)) {
-		NSLog(@"Directory doesn't exist");
+		//NSLog(@"Directory doesn't exist");
 		return;
 	}
 	NSArray *dirContents = [[NSFileManager defaultManager] directoryContentsAtPath:dirName];

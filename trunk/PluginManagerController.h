@@ -28,10 +28,13 @@
     IBOutlet NSTextView *progressText;
     IBOutlet NSTextField *statusText;
 	
+	IBOutlet id searchItemView;
+	
     IBOutlet id mainWindow;
     IBOutlet id prefsWindow;
 	
 	PluginManager *pluginManager_;
+
 }
 - (IBAction)InstallPlugins:(id)sender;
 - (IBAction)initialiseGUI:(id)sender;
@@ -49,5 +52,5 @@
     willBeInsertedIntoToolbar:(BOOL)flag;
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar;
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar;
-
+- (BOOL)validateToolbarItem:(NSToolbarItem *)theItem;
 @end

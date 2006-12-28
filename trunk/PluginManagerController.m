@@ -160,6 +160,14 @@
 	[mainWindow setToolbar:[toolbar autorelease]];
 }
 
+- (void)controlTextDidChange:(NSNotification *)notification
+{
+	//NSLog(@"CHANGED!");
+	NSString* search = [[[notification object] stringValue] lowercaseString];
+    [[pluginManager_ pluginList] searchPluginsForString:search];
+    [pluginList reloadData];
+}
+
 @end
 
 @implementation PluginManagerController (ToolbarDelegateCategory)
@@ -188,7 +196,12 @@
 		[item setTarget:self];
 		[item setAction:@selector(doInit)];
     } else if ( [itemIdentifier isEqualToString:@"SearchPlugins"] ) {
-	// Configuration code for "SearchItem"
+		NSRect fRect = [searchItemView frame];
+		[item setLabel:@"Search Plugins"];
+		[item setPaletteLabel:[item label]];
+		[item setView:searchItemView];
+		[item setMinSize:fRect.size];
+		[item setMaxSize:fRect.size];
     }
     return [item autorelease];
 }
@@ -216,6 +229,11 @@
 									 NSToolbarFlexibleSpaceItemIdentifier,
 									 @"SearchPlugins",
 									 nil];
+}
+
+- (BOOL)validateToolbarItem:(NSToolbarItem *)theItem
+{
+    return YES;
 }
 
 @end

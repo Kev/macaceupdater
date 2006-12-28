@@ -26,6 +26,8 @@
 @interface PluginList : NSObject
 {
 	NSMutableArray* plugins_;
+	NSMutableArray* activeSet_;
+	NSMutableArray* subSet_;
 }
 
 - (id)tableView:(NSTableView *)aTableView
@@ -44,4 +46,5 @@
 - (void)selectOutdated;
 - (Plugin*) objectAtIndex: (int) index;
 - (int) count;
+- (void) searchPluginsForString: (NSString*) searchString;
 @end
