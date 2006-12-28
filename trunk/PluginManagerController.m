@@ -55,8 +55,7 @@
 	[progressText insertText:@"Initialised MacAceUpdater\n"];
 	[progressText setEditable:false];
 	
-	[preferencesListURL setStringValue:[[pluginManager_ listURL] absoluteURL]];
-	[preferencesAddOnsDir setStringValue:[PluginManager addonDir]];
+	[self resetProperties:nil];
 	
 	[self statusUpdate:@"Ready"];
 	
@@ -169,6 +168,19 @@
 	NSString* search = [[[notification object] stringValue] lowercaseString];
     [[pluginManager_ pluginList] searchPluginsForString:search];
     [pluginList reloadData];
+}
+
+- (IBAction)applyProperties:(id)sender
+{
+	NSLog(@"Applying");
+	[pluginManager_ setListURLWithString:[preferencesListURL stringValue]];
+	[pluginManager_ setAddOnDirWithString:[preferencesAddOnsDir stringValue]];
+}
+
+- (IBAction)resetProperties:(id)sender
+{
+	[preferencesListURL setStringValue:[[pluginManager_ listURL] absoluteURL]];
+	[preferencesAddOnsDir setStringValue:[PluginManager addonDir]];
 }
 
 @end

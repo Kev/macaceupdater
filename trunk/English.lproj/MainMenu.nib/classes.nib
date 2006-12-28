@@ -6,7 +6,13 @@
         {CLASS = PluginList; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = PluginManager; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
-            ACTIONS = {InstallPlugins = id; initialiseGUI = id; selectOutdated = id; }; 
+            ACTIONS = {
+                InstallPlugins = id; 
+                applyProperties = id; 
+                initialiseGUI = id; 
+                resetProperties = id; 
+                selectOutdated = id; 
+            }; 
             CLASS = PluginManagerController; 
             LANGUAGE = ObjC; 
             OUTLETS = {

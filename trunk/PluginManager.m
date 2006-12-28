@@ -57,6 +57,21 @@
 
 }
 
+- (void) setAddOnDirWithString:(NSString*) dir
+{
+	[[NSUserDefaults standardUserDefaults] setObject:dir
+											   forKey:@"AddOnsDirectory"];
+}
+
+- (void) setListURLWithString:(NSString*) URL
+{
+	[[NSUserDefaults standardUserDefaults] setObject:URL
+											   forKey:@"AddOnsListURL"];
+}
+
+	
+	
+
 - (void) ensurePreferencesExist
 {
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsDirectory"] == nil) {

@@ -32,6 +32,7 @@
 - (void) ensurePreferencesExist;
 + (NSString*) addonDir;
 - (NSURL*) listURL;
-
+- (void) setAddOnDirWithString:(NSString*) dir;
+- (void) setListURLWithString:(NSString*) URL;
 
 @end
