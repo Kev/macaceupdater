@@ -10,8 +10,10 @@
             CLASS = PluginManagerController; 
             LANGUAGE = ObjC; 
             OUTLETS = {
+                mainWindow = id; 
                 markedCount = NSTextField; 
                 pluginList = NSTableView; 
+                preferencesWindow = id; 
                 progressText = NSTextView; 
                 statusText = NSTextField; 
             }; 

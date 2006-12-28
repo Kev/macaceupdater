@@ -27,6 +27,10 @@
     IBOutlet NSTableView *pluginList;
     IBOutlet NSTextView *progressText;
     IBOutlet NSTextField *statusText;
+	
+    IBOutlet id mainWindow;
+    IBOutlet id prefsWindow;
+	
 	PluginManager *pluginManager_;
 }
 - (IBAction)InstallPlugins:(id)sender;
