@@ -13,6 +13,8 @@
                 mainWindow = id; 
                 markedCount = NSTextField; 
                 pluginList = NSTableView; 
+                preferencesAddOnsDir = id; 
+                preferencesListURL = id; 
                 prefsWindow = id; 
                 progressText = NSTextView; 
                 searchItemView = id; 

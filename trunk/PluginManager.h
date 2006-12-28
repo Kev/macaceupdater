@@ -25,12 +25,13 @@
 @interface PluginManager : NSObject
 {
 	PluginList* pluginList_;
-	NSURL* listUrl_;
 }
 
 //- (bool) installPlugin: (NSString*) plugin;
 - (PluginList*) pluginList;
+- (void) ensurePreferencesExist;
 + (NSString*) addonDir;
+- (NSURL*) listURL;
 
 
 @end

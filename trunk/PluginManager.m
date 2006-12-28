@@ -28,9 +28,9 @@
 	
 	
 	[super init];
-	listUrl_ = [NSURL URLWithString:@"http://grid.13th-floor.org/wowace/"];
+	[self ensurePreferencesExist];
 	pluginList_ = [[PluginList alloc] init];
-	[pluginList_ loadFromUrl:listUrl_];
+	[pluginList_ loadFromUrl:[self listURL]];
 	return self;
 }
 
@@ -38,6 +38,12 @@
 {
 	return false;
 }*/
+
+- (NSURL*) listURL;
+{
+	return [NSURL URLWithString: [[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsListURL"]];
+
+}
 
 - (PluginList*) pluginList
 {
@@ -47,12 +53,20 @@
 
 + (NSString*) addonDir
 {
-	NSString* dir = [[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsDirectory"];
-	if (dir == nil) {
-		dir = @"/Applications/Games/World of Warcraft/Interface/AddOns/";
-		[[NSUserDefaults standardUserDefaults] setObject:dir forKey:@"AddOnsDirectory"];
+	return [[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsDirectory"];
+
+}
+
+- (void) ensurePreferencesExist
+{
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsDirectory"] == nil) {
+		[[NSUserDefaults standardUserDefaults] setObject:@"/Applications/World of Warcraft/Interface/AddOns/" 
+											   forKey:@"AddOnsDirectory"];
 	}
-	return dir;
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsListURL"] == nil) {
+		[[NSUserDefaults standardUserDefaults] setObject:@"http://grid.13th-floor.org/wowace/" 
+											   forKey:@"AddOnsListURL"];
+	}
 }
 
 @end
