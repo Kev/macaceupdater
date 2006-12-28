@@ -92,7 +92,7 @@
 			}
 			[scanner scanUpToString:@"</td></tr>" intoString:&segment];
 			description_ = [[NSString stringWithString:segment] retain];
-			NSLog(description_);
+			//NSLog(description_);
 			
 			
 		//}
@@ -105,15 +105,15 @@
 - (void) findInstalledVersion
 {
 	
-	NSLog([@"Finding version for: " stringByAppendingString:name_]);
+	//NSLog([@"Finding version for: " stringByAppendingString:name_]);
 	NSString* version=nil;
 	NSString* dirName=nil;
 	dirName = [NSString stringWithString:[PluginManager addonDir]];
 	dirName = [dirName stringByAppendingString:[self name]];
 	dirName = [dirName stringByAppendingString:@"/"];
 	
-	NSLog(@"Looking in dir:");
-	NSLog(dirName);
+	//NSLog(@"Looking in dir:");
+	//NSLog(dirName);
 	BOOL isDirectory=false;
 	if (!([[NSFileManager defaultManager] fileExistsAtPath: dirName isDirectory:&isDirectory ] && isDirectory)) {
 		NSLog(@"Directory doesn't exist");
@@ -125,13 +125,13 @@
 	int i=0;
 	while (i < [dirContents count]) {
 		changelog = [dirContents objectAtIndex:i];
-		NSLog(@"Looking at file:");
-		NSLog(changelog);
+		//NSLog(@"Looking at file:");
+		//NSLog(changelog);
 		if ( [changelog rangeOfString:@"changelog-"].location != NSNotFound ) {
-			NSLog(@"Found changelog:");
-			NSLog(changelog);
+			//NSLog(@"Found changelog:");
+			//NSLog(changelog);
 			version = [changelog substringWithRange:NSMakeRange(10,6)];
-			NSLog(version);
+			//NSLog(version);
 		}
 		i++;
 	}

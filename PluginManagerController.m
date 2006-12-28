@@ -135,7 +135,7 @@
 	[progressText setEditable:true];
 	[progressText insertText:@"Plugins Installed\n"];
 	[progressText setEditable:false];
-	
+	[pluginList reloadData];
 	[self statusUpdate:@"Ready"];
 }
 
@@ -148,6 +148,7 @@
 - (IBAction)selectOutdated:(id)sender
 {
 	[[pluginManager_ pluginList] selectOutdated];
+	[pluginList reloadData];
 }
 
 - (void)setupToolbar
@@ -157,7 +158,7 @@
     [toolbar setDelegate:self];
     [toolbar setAllowsUserCustomization:YES];
     [toolbar setAutosavesConfiguration:YES];
-    [mainWindow setToolbar:[toolbar autorelease]];
+	//[mainWindow setToolbar:[toolbar autorelease]];
 }
 
 @end
