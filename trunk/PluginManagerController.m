@@ -154,11 +154,10 @@
 - (void)setupToolbar
 {
     NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:@"mainToolbar"];
-    [toolbar autorelease];
     [toolbar setDelegate:self];
     [toolbar setAllowsUserCustomization:YES];
     [toolbar setAutosavesConfiguration:YES];
-	//[mainWindow setToolbar:[toolbar autorelease]];
+	[mainWindow setToolbar:[toolbar autorelease]];
 }
 
 @end
@@ -170,6 +169,27 @@
     willBeInsertedIntoToolbar:(BOOL)flag
 {
 	NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+	if ( [itemIdentifier isEqualToString:@"InstallPlugins"] ) {
+		[item setLabel:@"Install Selected Plugins"];
+		[item setPaletteLabel:[item label]];
+		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setTarget:self];
+		[item setAction:@selector(InstallPlugins:)];
+    } else if ( [itemIdentifier isEqualToString:@"UpdatePlugins"] ) {
+		[item setLabel:@"Select Outdated Plugins"];
+		[item setPaletteLabel:[item label]];
+		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setTarget:self];
+		[item setAction:@selector(selectOutdated:)];
+    } else if ( [itemIdentifier isEqualToString:@"Refresh"] ) {
+		[item setLabel:@"Refresh List"];
+		[item setPaletteLabel:[item label]];
+		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setTarget:self];
+		[item setAction:@selector(doInit)];
+    } else if ( [itemIdentifier isEqualToString:@"SearchPlugins"] ) {
+	// Configuration code for "SearchItem"
+    }
     return [item autorelease];
 }
 
@@ -178,13 +198,24 @@
 	return [NSArray arrayWithObjects:NSToolbarSeparatorItemIdentifier,
 				     NSToolbarSpaceItemIdentifier,
 				     NSToolbarFlexibleSpaceItemIdentifier,
-				     NSToolbarCustomizeToolbarItemIdentifier, nil];
+				     NSToolbarCustomizeToolbarItemIdentifier, 
+					 @"InstallPlugins",
+					 @"UpdatePlugins",
+					 @"Refresh",
+					 @"SearchPlugins",
+					 nil];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
-	return [NSArray arrayWithObjects:NSToolbarFlexibleSpaceItemIdentifier,
-				     NSToolbarCustomizeToolbarItemIdentifier, nil];
+	return [NSArray arrayWithObjects:@"InstallPlugins",
+									 @"UpdatePlugins",
+								     @"Refresh",
+									 NSToolbarSpaceItemIdentifier,
+									 NSToolbarCustomizeToolbarItemIdentifier,
+									 NSToolbarFlexibleSpaceItemIdentifier,
+									 @"SearchPlugins",
+									 nil];
 }
 
 @end
