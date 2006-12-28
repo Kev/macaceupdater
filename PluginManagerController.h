@@ -35,4 +35,15 @@
 - (void) doInit;
 - (void) markedUpdate;
 - (void) statusUpdate:(NSString*)status;
+- (void) setupToolbar;
+@end
+
+@interface PluginManagerController (ToolbarDelegateCategory)
+
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
+    itemForItemIdentifier:(NSString *)itemIdentifier
+    willBeInsertedIntoToolbar:(BOOL)flag;
+- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar;
+- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar;
+
 @end

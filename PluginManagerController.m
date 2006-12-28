@@ -34,6 +34,7 @@
 - (void) awakeFromNib
 {
 	//FIXME: add a delay here so that the window appears before the lag.
+	[self setupToolbar];
 	[self doInit];
 }
 
@@ -147,6 +148,42 @@
 - (IBAction)selectOutdated:(id)sender
 {
 	[[pluginManager_ pluginList] selectOutdated];
+}
+
+- (void)setupToolbar
+{
+    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:@"mainToolbar"];
+    [toolbar autorelease];
+    [toolbar setDelegate:self];
+    [toolbar setAllowsUserCustomization:YES];
+    [toolbar setAutosavesConfiguration:YES];
+    [mainWindow setToolbar:[toolbar autorelease]];
+}
+
+@end
+
+@implementation PluginManagerController (ToolbarDelegateCategory)
+
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
+    itemForItemIdentifier:(NSString *)itemIdentifier
+    willBeInsertedIntoToolbar:(BOOL)flag
+{
+	NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+    return [item autorelease];
+}
+
+- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
+{
+	return [NSArray arrayWithObjects:NSToolbarSeparatorItemIdentifier,
+				     NSToolbarSpaceItemIdentifier,
+				     NSToolbarFlexibleSpaceItemIdentifier,
+				     NSToolbarCustomizeToolbarItemIdentifier, nil];
+}
+
+- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
+{
+	return [NSArray arrayWithObjects:NSToolbarFlexibleSpaceItemIdentifier,
+				     NSToolbarCustomizeToolbarItemIdentifier, nil];
 }
 
 @end
