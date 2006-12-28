@@ -40,8 +40,6 @@
 
 - (void) doInit
 {
-	//FIXME: This is a hack because, for some reason I don't understand, init is called, but has no effect.
-	// I suspect this is because the GUI elements aren't themselves 'linked' to the object yet.
 	[progressText setEditable:true];
 	[self statusUpdate:@"Initialising"];
 	[progressText insertText:@"Initialising MacAceUpdater\n"];
@@ -57,7 +55,12 @@
 	[progressText insertText:@"Initialised MacAceUpdater\n"];
 	[progressText setEditable:false];
 	
+	[preferencesListURL setStringValue:[[pluginManager_ listURL] absoluteURL]];
+	[preferencesAddOnsDir setStringValue:[PluginManager addonDir]];
+	
 	[self statusUpdate:@"Ready"];
+	
+	
 	
 }
 

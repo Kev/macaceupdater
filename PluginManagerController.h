@@ -30,6 +30,9 @@
 	
 	IBOutlet id searchItemView;
 	
+	IBOutlet id preferencesListURL;
+	IBOutlet id preferencesAddOnsDir;
+	
     IBOutlet id mainWindow;
     IBOutlet id prefsWindow;
 	
