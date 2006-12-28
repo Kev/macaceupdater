@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		221A01540B3F14B2002965D4 /* PluginList.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A01530B3F14B2002965D4 /* PluginList.m */; };
 		221A03E40B3F3FA9002965D4 /* Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A03E30B3F3FA9002965D4 /* Plugin.m */; };
+		22232A150B4351CD00F75602 /* Add.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 22232A140B4351CD00F75602 /* Add.tiff */; };
 		225088B40B40696900789E7B /* UrlGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 225088B30B40696900789E7B /* UrlGrabber.m */; };
 		22C8C8B10B3EEB5F00B29632 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C8C8B00B3EEB5F00B29632 /* PluginManager.m */; };
 		22C8C8B40B3EEB6500B29632 /* PluginManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C8C8B20B3EEB6500B29632 /* PluginManagerController.m */; };
@@ -26,6 +27,7 @@
 		221A01530B3F14B2002965D4 /* PluginList.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PluginList.m; sourceTree = "<group>"; };
 		221A03E20B3F3FA9002965D4 /* Plugin.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Plugin.h; sourceTree = "<group>"; };
 		221A03E30B3F3FA9002965D4 /* Plugin.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Plugin.m; sourceTree = "<group>"; };
+		22232A140B4351CD00F75602 /* Add.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Add.tiff; sourceTree = "<group>"; };
 		225088B20B40696900789E7B /* UrlGrabber.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UrlGrabber.h; sourceTree = "<group>"; };
 		225088B30B40696900789E7B /* UrlGrabber.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UrlGrabber.m; sourceTree = "<group>"; };
 		22C8C8AF0B3EEB5F00B29632 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107310486CEB800E47090 /* Info.plist */,
+				22232A140B4351CD00F75602 /* Add.tiff */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 			);
@@ -179,6 +182,7 @@
 			files = (
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				22232A150B4351CD00F75602 /* Add.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
