@@ -41,6 +41,8 @@
 }
 - (IBAction)InstallPlugins:(id)sender;
 - (IBAction)initialiseGUI:(id)sender;
+- (IBAction)applyProperties:(id)sender;
+- (IBAction)resetProperties:(id)sender;
 - (IBAction)selectOutdated:(id)sender;
 - (void) doInit;
 - (void) markedUpdate;
