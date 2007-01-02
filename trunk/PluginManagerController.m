@@ -27,7 +27,7 @@
 {
 	[super init];
 	//[self doInit];
-	
+	notifications_ = [[Notifications alloc] init];
 	return self;
 }
 
@@ -112,6 +112,8 @@
 	}
 	
 	int i=0;
+	int installed=0;
+	int attempted=0;
 	
 	PluginList *plugins = [pluginManager_ pluginList];
 	while (i < [plugins count]) {
@@ -123,8 +125,10 @@
 	
 			[self statusUpdate:text];
 			BOOL success = [[plugins objectAtIndex:i] installWithBackupTo:backups];
+			attempted++;
 			if (success == YES) {
 				text=@"Plugin Installation: Complete\n";
+				installed++;
 			} else {
 				text=@"Plugin Installation: Failed\n";
 			}
@@ -139,6 +143,7 @@
 	[progressText setEditable:false];
 	[pluginList reloadData];
 	[self statusUpdate:@"Ready"];
+	[notifications_ announceMessageString:[NSString stringWithFormat:@"%@ %i %@ %i %@", @"Successfully installed ", installed, @" of ", attempted, @" addons."]];
 }
 
 - (IBAction)initialiseGUI:(id)sender

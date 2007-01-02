@@ -20,6 +20,7 @@
  */
 #import <Cocoa/Cocoa.h>
 #import "PluginManager.h"
+#import "Notifications.h"
 
 @interface PluginManagerController : NSObject
 {
@@ -37,6 +38,7 @@
     IBOutlet id prefsWindow;
 	
 	PluginManager *pluginManager_;
+	Notifications *notifications_;
 
 }
 - (IBAction)InstallPlugins:(id)sender;
