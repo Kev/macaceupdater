@@ -80,6 +80,28 @@
 	[statusText setStringValue:status];
 }
 
+- (IBAction)RescanPlugins:(id)sender
+{
+	[progressText setEditable:true];
+	[progressText insertText:@"Scanning installed addons\n"];
+	[progressText setEditable:false];
+	
+	[self statusUpdate:@"Scanning"];
+
+
+	int i=0;
+	PluginList *plugins = [pluginManager_ pluginList];
+	while (i < [plugins count]) {
+		[[plugins objectAtIndex:i] findInstalledVersion];
+		i++;
+	}
+	[progressText setEditable:true];
+	[progressText insertText:@"Local addons rescanned\n"];
+	[progressText setEditable:false];
+	[pluginList reloadData];
+	[self statusUpdate:@"Ready"];
+}
+
 - (IBAction)InstallPlugins:(id)sender
 {
 	[progressText setEditable:true];
@@ -125,6 +147,7 @@
 	
 			[self statusUpdate:text];
 			BOOL success = [[plugins objectAtIndex:i] installWithBackupTo:backups];
+			[[plugins objectAtIndex:i] findInstalledVersion];
 			attempted++;
 			if (success == YES) {
 				text=@"Plugin Installation: Complete\n";
@@ -178,8 +201,14 @@
 - (IBAction)applyProperties:(id)sender
 {
 	NSLog(@"Applying");
+	
 	[pluginManager_ setListURLWithString:[preferencesListURL stringValue]];
-	[pluginManager_ setAddOnDirWithString:[preferencesAddOnsDir stringValue]];
+	if ([[PluginManager addonDir] isEqualToString:
+					[preferencesAddOnsDir stringValue]] == NO) {
+		[pluginManager_ setAddOnDirWithString:
+								[preferencesAddOnsDir stringValue]];
+		[self RescanPlugins:nil];
+	}
 }
 
 - (IBAction)resetProperties:(id)sender

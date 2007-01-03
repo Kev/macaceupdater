@@ -25,6 +25,7 @@
 #define NotificationInstalled @"Addon installation complete"
 
 @implementation Notifications
+
 - (void) announceMessageString:(NSString*) message
 {
 	NSLog(@"Trying to notify growl");
@@ -51,6 +52,21 @@
 	[super dealloc];
 }
 
+
+
+- (void) growlNotificationWasClicked:(id)clickContext {
+        NSLog(@"Hey - the user clicked one of my notifications - the context is: %@", clickContext);
+}
+ 	
+- (void) growlNotificationTimedOut:(id)clickContext {
+        NSLog(@"Hey - nobody clicked one of my notifications - the context is: %@", clickContext);
+}
+
+
+@end
+
+@implementation Notifications (GrowlApplicationBridgeDelegate)
+
 - (NSDictionary *) registrationDictionaryForGrowl {
 	        NSArray *notifications = [NSArray arrayWithObjects:
 	                NotificationInstalled,
@@ -63,14 +79,6 @@
 	                nil];
  	
 	        return regDict;
-}
-
-- (void) growlNotificationWasClicked:(id)clickContext {
-        NSLog(@"Hey - the user clicked one of my notifications - the context is: %@", clickContext);
-}
- 	
-- (void) growlNotificationTimedOut:(id)clickContext {
-        NSLog(@"Hey - nobody clicked one of my notifications - the context is: %@", clickContext);
 }
 
 - (NSString *) applicationNameForGrowl {
