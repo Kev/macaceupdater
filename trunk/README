@@ -1,4 +1,4 @@
-MacAceUpdater 0.1 
+MacAceUpdater 0.2 
 -----------------
 Date: December 26th 2006
 
@@ -19,10 +19,14 @@ About
   Cocoa of a program somewhat like the popular WoWAceUpdater (formerly 
   WinAceUpdater). 
 
+  The project is currently hosted at http://code.google.com/p/macaceupdater
+  bugs can currently be reported, or features requested in the issue tracker
+  there.
+  
   It was started on the 24th December 2006 as a good excuse for me to learn
   Objective-C and Cocoa (and notably not because I thought there was anything
-  wrong with the other tools available at the time). It is not intended at
-  the moment for public use, although I'd be glad if someone somewhere 
+  wrong with the other tools available at the time). It was not originally 
+  intended for public use, but I'd be glad if someone somewhere 
   benefited from it in some way. At the moment it's held together by too much
   string and tape, but one day maybe someone (even me) will clean it up and
   it'll be useful.
@@ -30,12 +34,10 @@ About
 Known Issues
 ------------
   The following are known issues or bugs with this release.
-  - The wow folder path is hard coded.
   - It depends upon /usr/bin/unzip for mod extraction.
-  - The search widget doesn't work.
-  - The init button must be clicked before it'll do anything useful.
   - It may destroy your pet dinosaur and if it does, you get to keep
     the pieces.
+
 Notes
 -----
   This is an early release of a private project - it is entirely possible 
@@ -46,9 +48,13 @@ Notes
 Changes
 -------
 
+  New in 0.2
+  - The search works.
+  - Both the AddOns dir and the address of the site can be configured.
+
   New in 0.1
   - It lives.
-
+  
 
 I hope this is of some use to someone,
 /K

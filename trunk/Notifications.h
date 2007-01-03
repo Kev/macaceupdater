@@ -29,3 +29,8 @@
 - (void) announceMessageString:(NSString*) message;
 
 @end
+
+@interface Notifications (GrowlApplicationBridgeDelegate)
+- (NSString *) applicationNameForGrowl;
+- (NSDictionary *) registrationDictionaryForGrowl;
+@end

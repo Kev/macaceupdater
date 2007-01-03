@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>MacAceUpdater</string>
 	<key>CFBundleGetInfoString</key>
-	<string>MacAceUpdater 0.1 by Kevin Smith. This program is licensed under the GNU GPL.</string>
+	<string>MacAceUpdater by Kevin Smith. This program is licensed under the GNU GPL.</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -18,12 +18,12 @@
 	<string>MacAceUpdater</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-    <key>CFBundleShortVersionString</key>
-    <string>MacAceUpdater 0.1</string>
+	<key>CFBundleShortVersionString</key>
+	<string>MacAceUpdater 0.2</string>
 	<key>CFBundleSignature</key>
 	<string>MacAceUpdater</string>
 	<key>CFBundleVersion</key>
-	<string>0.1</string>
+	<string>0.2</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

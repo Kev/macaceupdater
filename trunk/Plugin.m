@@ -117,6 +117,7 @@
 	BOOL isDirectory=false;
 	if (!([[NSFileManager defaultManager] fileExistsAtPath: dirName isDirectory:&isDirectory ] && isDirectory)) {
 		//NSLog(@"Directory doesn't exist");
+		installedVersion_ = @"";
 		return;
 	}
 	NSArray *dirContents = [[NSFileManager defaultManager] directoryContentsAtPath:dirName];
@@ -230,6 +231,11 @@
 	
 	//Unzip new one
 	NSTask *unzipTask = [[NSTask alloc] init];
+	/*
+	//Note: I found the following snippet online which might work better
+	 [cmnd setLaunchPath:@"/usr/bin/ditto"];
+	[cmnd setArguments:[NSArray arrayWithObjects:
+	@"-v",@"-x",@"-k",@"--rsrc",sourcePath,targetPath,nil]]; */
 	[unzipTask setLaunchPath:@"/usr/bin/unzip"];
 	[unzipTask setArguments:
 	[NSArray arrayWithObjects: @"-o", zipFileName, @"-d",[PluginManager addonDir], nil]];

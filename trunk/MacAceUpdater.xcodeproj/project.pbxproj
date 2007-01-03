@@ -13,6 +13,9 @@
 		225088B40B40696900789E7B /* UrlGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 225088B30B40696900789E7B /* UrlGrabber.m */; };
 		227C52970B4B16C70041E5C6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227C52960B4B16C70041E5C6 /* Growl.framework */; };
 		227C529D0B4B16FA0041E5C6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 227C52960B4B16C70041E5C6 /* Growl.framework */; };
+		22AD29110B4BE91F00DEAF1A /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 22AD290E0B4BE91F00DEAF1A /* COPYING */; };
+		22AD29120B4BE91F00DEAF1A /* INSTALL in Resources */ = {isa = PBXBuildFile; fileRef = 22AD290F0B4BE91F00DEAF1A /* INSTALL */; };
+		22AD29130B4BE91F00DEAF1A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 22AD29100B4BE91F00DEAF1A /* README */; };
 		22B8E13A0B482B6500642B9B /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B8E1390B482B6500642B9B /* Notifications.m */; };
 		22C8C8B10B3EEB5F00B29632 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C8C8B00B3EEB5F00B29632 /* PluginManager.m */; };
 		22C8C8B40B3EEB6500B29632 /* PluginManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C8C8B20B3EEB6500B29632 /* PluginManagerController.m */; };
@@ -47,6 +50,9 @@
 		225088B20B40696900789E7B /* UrlGrabber.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UrlGrabber.h; sourceTree = "<group>"; };
 		225088B30B40696900789E7B /* UrlGrabber.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UrlGrabber.m; sourceTree = "<group>"; };
 		227C52960B4B16C70041E5C6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = /Library/Frameworks/Growl.framework; sourceTree = "<absolute>"; };
+		22AD290E0B4BE91F00DEAF1A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		22AD290F0B4BE91F00DEAF1A /* INSTALL */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = INSTALL; sourceTree = "<group>"; };
+		22AD29100B4BE91F00DEAF1A /* README */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		22B8E1380B482B6500642B9B /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		22B8E1390B482B6500642B9B /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
 		22C8C8AF0B3EEB5F00B29632 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				227C52960B4B16C70041E5C6 /* Growl.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -123,7 +130,6 @@
 		29B97314FDCFA39411CA2CEA /* MacAceUpdater */ = {
 			isa = PBXGroup;
 			children = (
-				227C52960B4B16C70041E5C6 /* Growl.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -145,6 +151,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22AD290E0B4BE91F00DEAF1A /* COPYING */,
+				22AD290F0B4BE91F00DEAF1A /* INSTALL */,
+				22AD29100B4BE91F00DEAF1A /* README */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				22232A140B4351CD00F75602 /* Add.tiff */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -207,6 +216,9 @@
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				22232A150B4351CD00F75602 /* Add.tiff in Resources */,
+				22AD29110B4BE91F00DEAF1A /* COPYING in Resources */,
+				22AD29120B4BE91F00DEAF1A /* INSTALL in Resources */,
+				22AD29130B4BE91F00DEAF1A /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
