@@ -204,10 +204,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>22AD29610B4C145800DEAF1A</string>
+						<string>22EBC78D0B4CFC230009488E</string>
 						<key>history</key>
 						<array>
-							<string>22AD28E90B4BE6F200DEAF1A</string>
+							<string>22AD29660B4C187F00DEAF1A</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -352,7 +352,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PluginManagerController.m</string>
+								<string>Plugin.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -360,11 +360,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PluginManagerController.m</string>
+										<string>Plugin.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>22AD29600B4C145800DEAF1A</string>
+										<string>22EBC78A0B4CFC230009488E</string>
 										<key>history</key>
 										<array>
 											<string>221EECBC0B41F5C5000B0B12</string>
@@ -381,8 +381,8 @@
 											<string>22AD292B0B4C11DA00DEAF1A</string>
 											<string>22AD29450B4C137B00DEAF1A</string>
 											<string>22AD29460B4C137B00DEAF1A</string>
-											<string>22AD295D0B4C145800DEAF1A</string>
-											<string>22AD295E0B4C145800DEAF1A</string>
+											<string>22AD29620B4C187F00DEAF1A</string>
+											<string>22AD29650B4C187F00DEAF1A</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -400,41 +400,8 @@
 											<string>22232A220B4352DC00F75602</string>
 											<string>22B8E1540B48387800642B9B</string>
 											<string>22B8E1590B48387800642B9B</string>
-											<string>22AD28C50B4BD0F200DEAF1A</string>
-											<string>22AD28F70B4BE7A400DEAF1A</string>
-											<string>22AD28F80B4BE7A400DEAF1A</string>
-											<string>22AD28F90B4BE7A400DEAF1A</string>
-											<string>22AD28FA0B4BE7A400DEAF1A</string>
-											<string>22AD28FB0B4BE7A400DEAF1A</string>
-											<string>22AD28FC0B4BE7A400DEAF1A</string>
-											<string>22AD28FD0B4BE7A400DEAF1A</string>
-											<string>22AD28FE0B4BE7A400DEAF1A</string>
-											<string>22AD28FF0B4BE7A400DEAF1A</string>
-											<string>22AD29000B4BE7A400DEAF1A</string>
-											<string>22AD29010B4BE7A400DEAF1A</string>
-											<string>22AD29020B4BE7A400DEAF1A</string>
-											<string>22AD29030B4BE7A400DEAF1A</string>
-											<string>22AD29040B4BE7A400DEAF1A</string>
-											<string>22AD29050B4BE7A400DEAF1A</string>
-											<string>22AD29060B4BE7A400DEAF1A</string>
-											<string>22AD29070B4BE7A400DEAF1A</string>
-											<string>22AD29080B4BE7A400DEAF1A</string>
-											<string>22AD29090B4BE7A400DEAF1A</string>
-											<string>22AD292E0B4C11DA00DEAF1A</string>
 											<string>22AD292F0B4C11DA00DEAF1A</string>
 											<string>22AD29300B4C11DA00DEAF1A</string>
-											<string>22AD29310B4C11DA00DEAF1A</string>
-											<string>22AD29320B4C11DA00DEAF1A</string>
-											<string>22AD29330B4C11DA00DEAF1A</string>
-											<string>22AD29340B4C11DA00DEAF1A</string>
-											<string>22AD29350B4C11DA00DEAF1A</string>
-											<string>22AD29480B4C137B00DEAF1A</string>
-											<string>22AD29490B4C137B00DEAF1A</string>
-											<string>22AD294A0B4C137B00DEAF1A</string>
-											<string>22AD294B0B4C137B00DEAF1A</string>
-											<string>22AD294C0B4C137B00DEAF1A</string>
-											<string>22AD29560B4C13F700DEAF1A</string>
-											<string>22AD295F0B4C145800DEAF1A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -492,9 +459,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>22AD28B60B4BD0CD00DEAF1A</string>
+				<string>22EBC78B0B4CFC230009488E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>22AD28B70B4BD0CD00DEAF1A</string>
+				<string>22EBC78C0B4CFC230009488E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -629,9 +596,8 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>22AD290B0B4BE7A400DEAF1A</string>
-		<string>2269BB190B407FB800FF55BB</string>
-		<string>/Users/kismith/devel/macaceupdater/mainline-googlecode/MacAceUpdater.xcodeproj</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
+		<string>/Users/kismith/devel/macaceupdater/mainline-googlecode/MacAceUpdater.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>295 254 815 712 0 0 1280 1002 </string>
@@ -1083,9 +1049,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>22AD28B80B4BD0CD00DEAF1A</string>
+				<string>22EBC78E0B4CFC230009488E</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>22AD28B90B4BD0CD00DEAF1A</string>
+				<string>22EBC78F0B4CFC230009488E</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>
