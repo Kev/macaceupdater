@@ -12,6 +12,8 @@
 	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>uk.co.kismith.mau</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright Kevin Smith 2006,2007</string>
 	<key>CFBundleInfoDiction.aryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
