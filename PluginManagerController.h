@@ -42,6 +42,7 @@
 
 }
 - (IBAction)InstallPlugins:(id)sender;
+- (IBAction)UninstallPlugins:(id)sender;
 - (IBAction)RescanPlugins:(id)sender;
 - (IBAction)initialiseGUI:(id)sender;
 - (IBAction)applyProperties:(id)sender;

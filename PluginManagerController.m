@@ -169,6 +169,74 @@
 	[notifications_ announceMessageString:[NSString stringWithFormat:@"%@ %i %@ %i %@", @"Successfully installed ", installed, @" of ", attempted, @" addons."]];
 }
 
+- (IBAction)UninstallPlugins:(id)sender
+{
+	[progressText setEditable:true];
+	[progressText insertText:@"Uninstalling Selected plugins\n"];
+	[progressText setEditable:false];
+	
+	[self statusUpdate:@"Uninstalling"];
+	NSString* backups = [[PluginManager addonDir] stringByAppendingString:@"_addonBackups/"];
+	BOOL isDirectory;
+	if (![[NSFileManager defaultManager] fileExistsAtPath: backups isDirectory:&isDirectory ]) {
+		NSLog(@"Backup directory doesn't exist, creating");
+		NSLog(backups);
+		[[NSFileManager defaultManager] createDirectoryAtPath: backups attributes: nil];
+	}
+	if (!([[NSFileManager defaultManager] fileExistsAtPath: backups isDirectory:&isDirectory ] && isDirectory)) {
+		NSLog(@"ERROR: Backup directory doesn't exist, or is a file");
+		return ;
+	}
+	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%d_%H.%M.%S" allowNaturalLanguage:NO]  autorelease];
+	backups = [backups stringByAppendingString:[dateFormatter stringFromDate:[NSDate date]]];
+	backups = [backups stringByAppendingString:@"/"];
+	if (![[NSFileManager defaultManager] fileExistsAtPath: backups isDirectory:&isDirectory ]) {
+		NSLog(@"Backup directory doesn't exist, creating");
+		NSLog(backups);
+		[[NSFileManager defaultManager] createDirectoryAtPath: backups attributes: nil];
+	}
+	if (!([[NSFileManager defaultManager] fileExistsAtPath: backups isDirectory:&isDirectory ] && isDirectory)) {
+		NSLog(@"ERROR: Backup directory doesn't exist, or is a file");
+		return ;
+	}
+	
+	int i=0;
+	int uninstalled=0;
+	int attempted=0;
+	
+	PluginList *plugins = [pluginManager_ pluginList];
+	while (i < [plugins count]) {
+		if ([[plugins objectAtIndex:i] selectedForInstall]) {
+			NSString* text=[[@"Uninstalling plugin: " stringByAppendingString:[[plugins objectAtIndex:i] name]] stringByAppendingString:@"\n"];
+			[progressText setEditable:true];
+			[progressText insertText:text];
+			[progressText setEditable:false];
+	
+			[self statusUpdate:text];
+			BOOL success = [[plugins objectAtIndex:i] uninstallWithBackupTo:backups];
+			[[plugins objectAtIndex:i] findInstalledVersion];
+			attempted++;
+			if (success == YES) {
+				text=@"Plugin Uninstallation: Complete\n";
+				uninstalled++;
+			} else {
+				text=@"Plugin Uninstallation: Failed\n";
+			}
+			[progressText setEditable:true];
+			[progressText insertText:text];
+			[progressText setEditable:false];
+		}
+		i++;
+	}
+	[progressText setEditable:true];
+	[progressText insertText:@"Plugins Uninstalled\n"];
+	[progressText setEditable:false];
+	[pluginList reloadData];
+	[self statusUpdate:@"Ready"];
+	[notifications_ announceMessageString:[NSString stringWithFormat:@"%@ %i %@ %i %@", @"Successfully uninstalled ", uninstalled, @" of ", attempted, @" addons."]];
+}
+
+
 - (IBAction)initialiseGUI:(id)sender
 {
 	[self doInit];
@@ -238,6 +306,12 @@
 		[item setImage:[NSImage imageNamed:@"Add"]];
 		[item setTarget:self];
 		[item setAction:@selector(selectOutdated:)];
+    }else if ( [itemIdentifier isEqualToString:@"UninstallPlugins"] ) {
+		[item setLabel:@"Uninstall Selected Plugins"];
+		[item setPaletteLabel:[item label]];
+		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setTarget:self];
+		[item setAction:@selector(UninstallPlugins:)];
     } else if ( [itemIdentifier isEqualToString:@"Refresh"] ) {
 		[item setLabel:@"Refresh List"];
 		[item setPaletteLabel:[item label]];
@@ -262,6 +336,7 @@
 				     NSToolbarFlexibleSpaceItemIdentifier,
 				     NSToolbarCustomizeToolbarItemIdentifier, 
 					 @"InstallPlugins",
+					 @"UninstallPlugins",
 					 @"UpdatePlugins",
 					 @"Refresh",
 					 @"SearchPlugins",
@@ -271,6 +346,7 @@
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
 	return [NSArray arrayWithObjects:@"InstallPlugins",
+									 @"UninstallPlugins",
 									 @"UpdatePlugins",
 								     @"Refresh",
 									 NSToolbarSpaceItemIdentifier,
