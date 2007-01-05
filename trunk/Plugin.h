@@ -37,11 +37,16 @@
 - (NSString*) pluginDescription;
 - (NSString*) latestVersion;
 - (NSString*) installedVersion;
+- (BOOL) backupTo:(NSString*) backups;
+- (BOOL) uninstallWithBackupTo:(NSString*) backups;
+- (BOOL) uninstallWithoutBackup;
 - (NSURL*) url;
+- (NSString*) pluginDirName;
 - (bool) selectedForInstall;
 - (void) setSelectedForInstall:(bool) selected;
 - (void) findInstalledVersion;
 - (void) selectIfOutdated;
+- (BOOL) installWithoutBackup;
 - (BOOL) installWithBackupTo:(NSString*) backups;
 /*- (void) setName:(NSString*) name;
 - (void) setDescription:(NSString*) description;

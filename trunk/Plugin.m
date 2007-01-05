@@ -193,9 +193,28 @@
 	//FIXME: This seems to not work :(
 }
 
-- (BOOL) installWithBackupTo:(NSString*) backups
+- (NSString*) pluginDirName
 {
-	NSLog([@"Trying to install plugin: " stringByAppendingString:name_ ]);
+	NSString* pluginDirName = [NSString stringWithString:[PluginManager addonDir]];
+	pluginDirName = [pluginDirName stringByAppendingString:[self name]];
+	pluginDirName = [pluginDirName stringByAppendingString:@"/"];
+	return [pluginDirName autorelease];
+}
+
+- (BOOL) backupTo:(NSString*) backups
+{
+	if (![installedVersion_ isEqualToString:@""]) {
+		if ([[NSFileManager defaultManager] movePath:[self pluginDirName] toPath:[backups stringByAppendingString:name_] handler:nil] == NO) {
+			NSLog(@"Error backing up old plugin");
+			return NO;
+		}
+	}
+	return YES;
+}
+
+- (BOOL) installWithoutBackup
+{
+		NSLog([@"Trying to install plugin: " stringByAppendingString:name_ ]);
 	//make AddOns/_downloadedfiles if it doesn't exist
 	NSString* downloads = [[PluginManager addonDir] stringByAppendingString:@"_downloads/"];
 	NSLog([@"Downloading to folder: " stringByAppendingString:downloads ]);
@@ -218,18 +237,7 @@
 	NSLog([[@"Downloading file " stringByAppendingString:[url_ absoluteString]] stringByAppendingString:zipFileName]);
 	[UrlGrabber getPage:url_ toFile:zipFileName];
 	
-	//Zip downloaded - now archive old addon
-	NSString* pluginDirName = [NSString stringWithString:[PluginManager addonDir]];
-	pluginDirName = [pluginDirName stringByAppendingString:[self name]];
-	pluginDirName = [pluginDirName stringByAppendingString:@"/"];
-	if (![installedVersion_ isEqualToString:@""]) {
-		if ([[NSFileManager defaultManager] movePath:pluginDirName toPath:[backups stringByAppendingString:name_] handler:nil] == NO) {
-			NSLog(@"Error backing up old plugin");
-			return NO;
-		}
-	}
-	
-	//Unzip new one
+		//Unzip new one
 	NSTask *unzipTask = [[NSTask alloc] init];
 	/*
 	//Note: I found the following snippet online which might work better
@@ -255,6 +263,27 @@
 
 	[unzipTask release];
 	return YES;
+}
+
+- (BOOL) installWithBackupTo:(NSString*) backups
+{
+	if ([self backupTo:backups] == NO)
+	{
+		NSLog(@"Backup failed, aborting install");
+		return NO;
+	}
+	return [self installWithoutBackup];
+}
+
+- (BOOL) uninstallWithoutBackup
+{
+	return [[NSFileManager defaultManager] removeFileAtPath:[self pluginDirName] 
+						handler:nil];
+}
+
+- (BOOL) uninstallWithBackupTo:(NSString*) backups
+{
+	return [self backupTo:backups];
 }
 
 @end
