@@ -21,6 +21,13 @@
 
 #import "PluginList.h"
 
+//These fix the graphics on sorting
+//FIXME: nuke
+@interface NSTableView(SortImages)
++ (NSImage *) _defaultTableHeaderSortImage;
++ (NSImage *) _defaultTableHeaderReverseSortImage;
+@end
+
 @implementation PluginList
 
 - (PluginList*) init
@@ -191,6 +198,34 @@
 	    [subSet_ addObject:plugin];
     }
     activeSet_ = subSet_;
+}
+
+- (void)tableView: (NSTableView *) tableView
+    didClickTableColumn: (NSTableColumn *) tableColumn {
+	NSLog(@"Sorting columns");
+    if (sortedColumn_ == tableColumn) {
+        sortDescending_ = !sortDescending_;
+    } else {
+        sortDescending_ = NO;
+        if (sortedColumn_) {
+			//the graphics ore from undocumented methods
+			//FIXME: I'd rather not use these
+            [tableView setIndicatorImage: nil inTableColumn: sortedColumn_];
+            [sortedColumn_ release];
+        }
+        sortedColumn_ = [tableColumn retain];
+        [tableView setHighlightedTableColumn: tableColumn];
+        columnSortSelector_ = NSSelectorFromString([NSString
+            stringWithFormat: @"%@Comparison:",
+            [tableColumn identifier]]);
+        [plugins_ sortUsingSelector: columnSortSelector_];
+    }
+    // this graphics trick is an undocumented method
+    [tableView setIndicatorImage: (sortDescending_ ?
+        [NSTableView _defaultTableHeaderReverseSortImage] :
+        [NSTableView _defaultTableHeaderSortImage])
+        inTableColumn: tableColumn];
+    [tableView reloadData];
 }
 
 @end

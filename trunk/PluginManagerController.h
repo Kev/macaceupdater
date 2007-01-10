@@ -29,7 +29,7 @@
     IBOutlet NSTextView *progressText;
     IBOutlet NSTextField *statusText;
 	
-	IBOutlet id searchItemView;
+	IBOutlet NSSearchField* searchItemView;
 	
 	IBOutlet id preferencesListURL;
 	IBOutlet id preferencesAddOnsDir;
@@ -48,6 +48,9 @@
 - (IBAction)applyProperties:(id)sender;
 - (IBAction)resetProperties:(id)sender;
 - (IBAction)selectOutdated:(id)sender;
+- (IBAction)selectAll:(id)sender;
+- (IBAction)selectNone:(id)sender;
+- (IBAction)selectInvert:(id)sender;
 - (void) doInit;
 - (void) markedUpdate;
 - (void) statusUpdate:(NSString*)status;

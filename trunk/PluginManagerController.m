@@ -167,6 +167,7 @@
 	[pluginList reloadData];
 	[self statusUpdate:@"Ready"];
 	[notifications_ announceMessageString:[NSString stringWithFormat:@"%@ %i %@ %i %@", @"Successfully installed ", installed, @" of ", attempted, @" addons."]];
+
 }
 
 - (IBAction)UninstallPlugins:(id)sender
@@ -246,6 +247,32 @@
 - (IBAction)selectOutdated:(id)sender
 {
 	[[pluginManager_ pluginList] selectOutdated];
+	[searchItemView setStringValue:@""];
+	[[pluginManager_ pluginList] searchPluginsForString:@""];
+	[pluginList reloadData];
+}
+
+- (IBAction)selectAll:(id)sender
+{
+	[[pluginManager_ pluginList] selectAll];
+	[searchItemView setStringValue:@""];
+	[[pluginManager_ pluginList] searchPluginsForString:@""];
+	[pluginList reloadData];
+}
+
+- (IBAction)selectNone:(id)sender
+{
+	[[pluginManager_ pluginList] selectNone];
+	[searchItemView setStringValue:@""];
+	[[pluginManager_ pluginList] searchPluginsForString:@""];
+	[pluginList reloadData];
+}
+
+- (IBAction)selectInvert:(id)sender
+{
+	[[pluginManager_ pluginList] selectInvert];
+	[searchItemView setStringValue:@""];
+	[[pluginManager_ pluginList] searchPluginsForString:@""];
 	[pluginList reloadData];
 }
 

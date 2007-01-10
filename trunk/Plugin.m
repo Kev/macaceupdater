@@ -212,9 +212,8 @@
 	return YES;
 }
 
-- (BOOL) installWithoutBackup
+- (NSString*) downloadLatest
 {
-		NSLog([@"Trying to install plugin: " stringByAppendingString:name_ ]);
 	//make AddOns/_downloadedfiles if it doesn't exist
 	NSString* downloads = [[PluginManager addonDir] stringByAppendingString:@"_downloads/"];
 	NSLog([@"Downloading to folder: " stringByAppendingString:downloads ]);
@@ -235,9 +234,35 @@
 	[scanner scanUpToString:@"" intoString:&bareFileName];
 	NSString* zipFileName = [downloads stringByAppendingString:bareFileName];
 	NSLog([[@"Downloading file " stringByAppendingString:[url_ absoluteString]] stringByAppendingString:zipFileName]);
-	[UrlGrabber getPage:url_ toFile:zipFileName];
+	if ([UrlGrabber getPage:url_ toFile:zipFileName] == YES) {
+		return [zipFileName autorelease];
+	}
+	return @"";
+}
+
+//pass nil to not backup
+- (BOOL) installWithBackupTo:(NSString*) backups
+{
+	NSLog([@"Trying to install plugin: " stringByAppendingString:name_ ]);
+	//The order is important here so as not to lose AddOns if the download fails.
+	//First download it, and abort if it fails
+	NSString* downloadedArchive=[[self downloadLatest] retain];
+	if ([downloadedArchive isEqualToString:@""]) {
+		return NO;
+	}
+	//only Make a backup if backups != nil
+	if (backups != nil) {
+		if ([self backupTo:backups] == NO)
+		{
+			NSLog(@"Backup failed, aborting install");
+			return NO;
+		}
+	} else {
+		[self uninstallWithBackupTo:nil];
+	}
+
 	
-		//Unzip new one
+	//Unzip new one
 	NSTask *unzipTask = [[NSTask alloc] init];
 	/*
 	//Note: I found the following snippet online which might work better
@@ -246,9 +271,9 @@
 	@"-v",@"-x",@"-k",@"--rsrc",sourcePath,targetPath,nil]]; */
 	[unzipTask setLaunchPath:@"/usr/bin/unzip"];
 	[unzipTask setArguments:
-	[NSArray arrayWithObjects: @"-o", zipFileName, @"-d",[PluginManager addonDir], nil]];
+	[NSArray arrayWithObjects: @"-o", downloadedArchive, @"-d",[PluginManager addonDir], nil]];
 	NSLog(@"Trying to Unzip from: To:");
-	NSLog(zipFileName);
+	NSLog(downloadedArchive);
 	NSLog([PluginManager addonDir]);
 	
 	//NSLog([@"Unzipping with command: " stringByAppendingString:[unzipTask ]]);	
@@ -259,30 +284,18 @@
 		NSLog(@"Unzip failed.");
 		return NO;
 	}
-
-
 	[unzipTask release];
+	[downloadedArchive release];
+	
 	return YES;
-}
-
-- (BOOL) installWithBackupTo:(NSString*) backups
-{
-	if ([self backupTo:backups] == NO)
-	{
-		NSLog(@"Backup failed, aborting install");
-		return NO;
-	}
-	return [self installWithoutBackup];
-}
-
-- (BOOL) uninstallWithoutBackup
-{
-	return [[NSFileManager defaultManager] removeFileAtPath:[self pluginDirName] 
-						handler:nil];
 }
 
 - (BOOL) uninstallWithBackupTo:(NSString*) backups
 {
+	if (backups == nil) {
+		return [[NSFileManager defaultManager] removeFileAtPath:[self pluginDirName] 
+						handler:nil];
+	}
 	return [self backupTo:backups];
 }
 
