@@ -28,6 +28,10 @@
 	NSMutableArray* plugins_;
 	NSMutableArray* activeSet_;
 	NSMutableArray* subSet_;
+	
+    NSTableColumn* sortedColumn_;  // track last column chosen
+    SEL columnSortSelector_;      // holds a method pointer
+    BOOL sortDescending_;         // sort in descending order
 }
 
 - (id)tableView:(NSTableView *)aTableView
@@ -38,6 +42,10 @@
     setObjectValue:anObject
     forTableColumn:(NSTableColumn *)aTableColumn
     row:(int)rowIndex;
+
+- (void)tableView: (NSTableView *) tableView
+    didClickTableColumn: (NSTableColumn *) tableColumn;
+
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView;
 
