@@ -9,7 +9,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>MacAceUpdater by Kevin Smith. This program is licensed under the GNU GPL.</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>ApplicationIcon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>uk.co.kismith.mau</string>
 	<key>NSHumanReadableCopyright</key>
@@ -23,7 +23,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>MacAceUpdater 0.2</string>
 	<key>CFBundleSignature</key>
-	<string>MacAceUpdater</string>
+	<string>MAUP</string>
 	<key>CFBundleVersion</key>
 	<string>0.2</string>
 	<key>NSMainNibFile</key>

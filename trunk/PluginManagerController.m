@@ -324,13 +324,13 @@
 	if ( [itemIdentifier isEqualToString:@"InstallPlugins"] ) {
 		[item setLabel:@"Install Selected Plugins"];
 		[item setPaletteLabel:[item label]];
-		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setImage:[NSImage imageNamed:@"InstallIcon"]];
 		[item setTarget:self];
 		[item setAction:@selector(InstallPlugins:)];
     } else if ( [itemIdentifier isEqualToString:@"UpdatePlugins"] ) {
 		[item setLabel:@"Select Outdated Plugins"];
 		[item setPaletteLabel:[item label]];
-		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setImage:[NSImage imageNamed:@"SelectIcon"]];
 		[item setTarget:self];
 		[item setAction:@selector(selectOutdated:)];
     }else if ( [itemIdentifier isEqualToString:@"UninstallPlugins"] ) {
@@ -342,7 +342,7 @@
     } else if ( [itemIdentifier isEqualToString:@"Refresh"] ) {
 		[item setLabel:@"Refresh List"];
 		[item setPaletteLabel:[item label]];
-		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setImage:[NSImage imageNamed:@"RefreshIcon"]];
 		[item setTarget:self];
 		[item setAction:@selector(doInit)];
     } else if ( [itemIdentifier isEqualToString:@"SearchPlugins"] ) {
