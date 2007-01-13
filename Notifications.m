@@ -32,7 +32,7 @@
 	[GrowlApplicationBridge notifyWithTitle:@"AddOn installation complete"
 							description:message
                             notificationName:NotificationInstalled
-                            iconData: nil
+                            iconData: [NSImage imageNamed:@"ApplicationIcon"]
                             priority:0
 							isSticky:NO
 							clickContext:@"bob"];
