@@ -19,6 +19,8 @@
 		2273D1520B58E6300059AB87 /* RefreshIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2273D14A0B58E6300059AB87 /* RefreshIcon.tiff */; };
 		2273D1530B58E6300059AB87 /* SelectIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2273D14B0B58E6300059AB87 /* SelectIcon.icns */; };
 		2273D1540B58E6300059AB87 /* SelectIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2273D14C0B58E6300059AB87 /* SelectIcon.tiff */; };
+		2273D1A80B59B19F0059AB87 /* UnInstallIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2273D1A60B59B19F0059AB87 /* UnInstallIcon.tiff */; };
+		2273D1A90B59B19F0059AB87 /* UnInstallIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2273D1A70B59B19F0059AB87 /* UnInstallIcon.icns */; };
 		227C52970B4B16C70041E5C6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227C52960B4B16C70041E5C6 /* Growl.framework */; };
 		227C529D0B4B16FA0041E5C6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 227C52960B4B16C70041E5C6 /* Growl.framework */; };
 		22AD29110B4BE91F00DEAF1A /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 22AD290E0B4BE91F00DEAF1A /* COPYING */; };
@@ -66,6 +68,8 @@
 		2273D14A0B58E6300059AB87 /* RefreshIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = RefreshIcon.tiff; path = icons/RefreshIcon.tiff; sourceTree = "<group>"; };
 		2273D14B0B58E6300059AB87 /* SelectIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = SelectIcon.icns; path = icons/SelectIcon.icns; sourceTree = "<group>"; };
 		2273D14C0B58E6300059AB87 /* SelectIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SelectIcon.tiff; path = icons/SelectIcon.tiff; sourceTree = "<group>"; };
+		2273D1A60B59B19F0059AB87 /* UnInstallIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = UnInstallIcon.tiff; path = icons/UnInstallIcon.tiff; sourceTree = "<group>"; };
+		2273D1A70B59B19F0059AB87 /* UnInstallIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = UnInstallIcon.icns; path = icons/UnInstallIcon.icns; sourceTree = "<group>"; };
 		227C52960B4B16C70041E5C6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = /Library/Frameworks/Growl.framework; sourceTree = "<absolute>"; };
 		22AD290E0B4BE91F00DEAF1A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		22AD290F0B4BE91F00DEAF1A /* INSTALL */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = INSTALL; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2273D1A60B59B19F0059AB87 /* UnInstallIcon.tiff */,
+				2273D1A70B59B19F0059AB87 /* UnInstallIcon.icns */,
 				2273D14C0B58E6300059AB87 /* SelectIcon.tiff */,
 				2273D1460B58E6300059AB87 /* ApplicationIcon.tiff */,
 				2273D14A0B58E6300059AB87 /* RefreshIcon.tiff */,
@@ -255,6 +261,8 @@
 				2273D1520B58E6300059AB87 /* RefreshIcon.tiff in Resources */,
 				2273D1530B58E6300059AB87 /* SelectIcon.icns in Resources */,
 				2273D1540B58E6300059AB87 /* SelectIcon.tiff in Resources */,
+				2273D1A80B59B19F0059AB87 /* UnInstallIcon.tiff in Resources */,
+				2273D1A90B59B19F0059AB87 /* UnInstallIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

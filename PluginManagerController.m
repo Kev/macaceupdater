@@ -336,7 +336,7 @@
     }else if ( [itemIdentifier isEqualToString:@"UninstallPlugins"] ) {
 		[item setLabel:@"Uninstall Selected Plugins"];
 		[item setPaletteLabel:[item label]];
-		[item setImage:[NSImage imageNamed:@"Add"]];
+		[item setImage:[NSImage imageNamed:@"UnInstallIcon"]];
 		[item setTarget:self];
 		[item setAction:@selector(UninstallPlugins:)];
     } else if ( [itemIdentifier isEqualToString:@"Refresh"] ) {
