@@ -232,7 +232,7 @@
 	NSString *bareFileName=nil;
 	[scanner scanString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanUpToString:@"" intoString:&bareFileName];
-	NSString* zipFileName = [downloads stringByAppendingString:bareFileName];
+	NSString* zipFileName = [[downloads stringByAppendingString:bareFileName] retain];
 	NSLog([[@"Downloading file " stringByAppendingString:[url_ absoluteString]] stringByAppendingString:zipFileName]);
 	if ([UrlGrabber getPage:url_ toFile:zipFileName] == YES) {
 		return [zipFileName autorelease];
