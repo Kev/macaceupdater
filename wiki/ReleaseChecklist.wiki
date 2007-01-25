@@ -7,6 +7,7 @@ This is a list of things that need to be done before a release.
   * Enable Release mode.
 
 = Packaging =
+  * Update dmg/Makefile
   * Run `make` in dmg/
 
 = Distribution =
