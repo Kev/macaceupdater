@@ -1,6 +1,6 @@
-MacAceUpdater 0.3-prerelease 
+MacAceUpdater 0.3 
 -----------------
-Date: December 27th 2006 onwards
+Date: January 25th 2007
 
 Author:
   Kevin Smith
@@ -52,6 +52,7 @@ Changes
   New in 0.3
   - Beautiful icons have been donated by DreamScape Visionery.
   - There now exists an uninstall button, as well as install.
+  - The app now allows for self-updating.
 
   New in 0.2
   - The search works.

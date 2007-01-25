@@ -20,12 +20,12 @@
 	<string>MacAceUpdater</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>MacAceUpdater 0.3-devel</string>
+	<!--<key>CFBundleShortVersionString</key>
+	<string>MacAceUpdater 0.3</string>-->
 	<key>CFBundleSignature</key>
 	<string>MAUP</string>
 	<key>CFBundleVersion</key>
-	<string>0.3-devel</string>
+	<string>0.3</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
