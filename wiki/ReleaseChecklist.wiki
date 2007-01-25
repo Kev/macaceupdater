@@ -7,8 +7,12 @@ This is a list of things that need to be done before a release.
   * Enable Release mode.
 
 = Packaging =
-  * At the moment simply a tarball - I need to do something about DMGs.
+  * Run `make` in dmg/
 
+= Distribution =
+  * Upload to code.google
+  * Create release notes at http://kismith.co.uk/appcasts/macaceupdater/releasenotes_X.Y.html
+  * Create a new entry in http://kismith.co.uk/appcasts/macaceupdater/appcast.xml
+ 
 = Announcement =
   * At the moment I'm not announcing anywhere - I should probably change this.
-
