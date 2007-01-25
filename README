@@ -1,6 +1,6 @@
-MacAceUpdater 0.2 
+MacAceUpdater 0.3-prerelease 
 -----------------
-Date: December 26th 2006
+Date: December 27th 2006 onwards
 
 Author:
   Kevin Smith
@@ -25,11 +25,12 @@ About
   
   It was started on the 24th December 2006 as a good excuse for me to learn
   Objective-C and Cocoa (and notably not because I thought there was anything
-  wrong with the other tools available at the time). It was not originally 
-  intended for public use, but I'd be glad if someone somewhere 
-  benefited from it in some way. At the moment it's held together by too much
-  string and tape, but one day maybe someone (even me) will clean it up and
-  it'll be useful.
+  wrong with the other tools available at the time). It was not originally
+  intended for public use, but it has since grown beyond my expectations, and
+  I'd be glad if someone somewhere benefited from it in some way. Initially, 
+  it was held together by too much string and tape, but I'm gradually going
+  through to clean it up and it should be in a state where it's generally 
+  useful.
 
 Known Issues
 ------------
@@ -47,6 +48,10 @@ Notes
 
 Changes
 -------
+
+  New in 0.3
+  - Beautiful icons have been donated by DreamScape Visionery.
+  - There now exists an uninstall button, as well as install.
 
   New in 0.2
   - The search works.

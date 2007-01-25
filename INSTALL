@@ -1,2 +1,40 @@
-At the moment all there is is an xcode project - if you don't know how to
-build one of those, this is unlikely to be of use to you.
+MacAceUpdater INSTALL file
+-----------------
+Last updated: January 25th 2007
+
+Author:
+  Kevin Smith
+  wau-feedback@kismith.co.uk
+  http://kismith.co.uk
+
+  Information about this software is included in the README file.
+
+  This program is licensed under the GNU General Public License. See the 
+  COPYING file for more information.
+
+Installing MacAceUpdater
+------------------------
+MacAceUpdater is distributed in binary form inside a Mac OS X disk image (.dmg)
+file. This is almost certainly what you have, and need. In this case, to 
+install the software, simply load the disk image and drag the application from
+the disk image folder onto your Mac somewhere (such as /Applications), and
+double click the copied application to run it. You do not need to compile the
+software yourself.
+
+
+Compiling MacAceUpdater
+-----------------------
+You almost certainly don't need to compile this software yourself, as it is
+distributed pre-compiled. If, however, you wish to compile it yourself for
+some reason, the software depends upon the following frameworks:
+
+/Library/Frameworks/Growl.framework (http://growl.info)
+/Library/Frameworks/Sparkle.framework (http://andymatuschak.org/pages/sparkle)
+
+If you have these frameworks, simply load MacAceUpdater.xcodeproj and press 
+'build'. Ensure that you have zerolink disabled - both in the build menu and
+in the project properties, and that you have both ppc and i386 binary types
+enabled.
+
+If you wish to create a disk image of your build, edit the dmg/Makefile file
+as appropriate, and then, in a terminal window, cd to dmg/ and run `make`.
