@@ -30,5 +30,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<!-- This is for the auto-update framework Sparkle-->
+	<key>SUFeedURL</key> 
+	<string>http://kismith.co.uk/appcasts/macaceupdater/appcast.xml</string>
+		
 </dict>
 </plist>

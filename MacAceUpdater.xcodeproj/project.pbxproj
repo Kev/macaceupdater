@@ -22,7 +22,9 @@
 		2273D1A80B59B19F0059AB87 /* UnInstallIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2273D1A60B59B19F0059AB87 /* UnInstallIcon.tiff */; };
 		2273D1A90B59B19F0059AB87 /* UnInstallIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2273D1A70B59B19F0059AB87 /* UnInstallIcon.icns */; };
 		227C52970B4B16C70041E5C6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227C52960B4B16C70041E5C6 /* Growl.framework */; };
-		227C529D0B4B16FA0041E5C6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 227C52960B4B16C70041E5C6 /* Growl.framework */; };
+		227C529D0B4B16FA0041E5C6 /* Growl.framework in Copy Growl */ = {isa = PBXBuildFile; fileRef = 227C52960B4B16C70041E5C6 /* Growl.framework */; };
+		22AA960C0B68BF4D009CBBB8 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AA960B0B68BF4D009CBBB8 /* Sparkle.framework */; };
+		22AA96250B68BF96009CBBB8 /* Sparkle.framework in Copy Sparkle */ = {isa = PBXBuildFile; fileRef = 22AA960B0B68BF4D009CBBB8 /* Sparkle.framework */; };
 		22AD29110B4BE91F00DEAF1A /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 22AD290E0B4BE91F00DEAF1A /* COPYING */; };
 		22AD29120B4BE91F00DEAF1A /* INSTALL in Resources */ = {isa = PBXBuildFile; fileRef = 22AD290F0B4BE91F00DEAF1A /* INSTALL */; };
 		22AD29130B4BE91F00DEAF1A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 22AD29100B4BE91F00DEAF1A /* README */; };
@@ -37,14 +39,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		227C529B0B4B16E20041E5C6 /* CopyFiles */ = {
+		227C529B0B4B16E20041E5C6 /* Copy Growl */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				227C529D0B4B16FA0041E5C6 /* Growl.framework in CopyFiles */,
+				227C529D0B4B16FA0041E5C6 /* Growl.framework in Copy Growl */,
 			);
+			name = "Copy Growl";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22AA96200B68BF64009CBBB8 /* Copy Sparkle */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				22AA96250B68BF96009CBBB8 /* Sparkle.framework in Copy Sparkle */,
+			);
+			name = "Copy Sparkle";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -71,6 +85,7 @@
 		2273D1A60B59B19F0059AB87 /* UnInstallIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = UnInstallIcon.tiff; path = icons/UnInstallIcon.tiff; sourceTree = "<group>"; };
 		2273D1A70B59B19F0059AB87 /* UnInstallIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = UnInstallIcon.icns; path = icons/UnInstallIcon.icns; sourceTree = "<group>"; };
 		227C52960B4B16C70041E5C6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = /Library/Frameworks/Growl.framework; sourceTree = "<absolute>"; };
+		22AA960B0B68BF4D009CBBB8 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		22AD290E0B4BE91F00DEAF1A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		22AD290F0B4BE91F00DEAF1A /* INSTALL */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = INSTALL; sourceTree = "<group>"; };
 		22AD29100B4BE91F00DEAF1A /* README */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
@@ -97,6 +112,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				227C52970B4B16C70041E5C6 /* Growl.framework in Frameworks */,
+				22AA960C0B68BF4D009CBBB8 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +141,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22AA960B0B68BF4D009CBBB8 /* Sparkle.framework */,
 				227C52960B4B16C70041E5C6 /* Growl.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -214,7 +231,8 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				227C529B0B4B16E20041E5C6 /* CopyFiles */,
+				227C529B0B4B16E20041E5C6 /* Copy Growl */,
+				22AA96200B68BF64009CBBB8 /* Copy Sparkle */,
 			);
 			buildRules = (
 			);
@@ -309,6 +327,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -328,6 +351,11 @@
 					ppc,
 					i386,
 				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
