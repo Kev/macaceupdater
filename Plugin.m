@@ -45,44 +45,60 @@
 		//while ( [scanner isAtEnd] == NO) {
 		
 			NSString *segment=nil;
+			NSString *junk=nil;
 			//NSLog(@"Line, Segments");
 			//NSLog(string);
 			if ([scanner isAtEnd] == YES) {
 				return nil;
 			}
-			[scanner scanString:@"<tr><td>" intoString:&segment];
+			[scanner scanUpToString:@"<td>" intoString:&junk];
+			[scanner scanString:@"<td>" intoString:&junk];
 			if ([scanner isAtEnd] == YES) {
 				return nil;
 			}
 			//NSLog(segment);
-			[scanner scanUpToString:@"</td><td>" intoString:&segment];
+			[scanner scanUpToString:@"</td>" intoString:&segment];
+			[scanner scanString:@"</td>" intoString:&junk];
 			
 			NSScanner *nameScanner = [NSScanner scannerWithString:segment];
 			NSString *segment2=nil;
 			[nameScanner scanString:@"<a href=\"" intoString:&segment2];
 			[nameScanner scanUpToString:@"\">" intoString:&segment2];
-			url_ = [[NSURL URLWithString:segment2 relativeToURL:baseUrl] retain];
+			if ([segment2 hasPrefix:@"http://"]) {
+				NSLog(@"Full URL");
+				url_ = [[NSURL URLWithString:segment2] retain];
+			} else {
+				url_ = [[NSURL URLWithString:segment2 relativeToURL:baseUrl] retain];
+			}
+			NSLog(@"Creating URL from:");
+			NSLog(segment2);
 			
 			[nameScanner scanString:@"\">" intoString:&segment2];
 			[nameScanner scanUpToString:@"</a>" intoString:&segment2];
 			
 			name_ = [[NSString stringWithString:segment2] retain];
-			[scanner scanString:@"</td><td>" intoString:&segment];
+			[scanner scanUpToString:@"<td>" intoString:&segment];
+			[scanner scanString:@"<td>" intoString:&junk];
 			if ([scanner isAtEnd] == YES) {
 				return nil;
 			}
 			
 			//NSLog(name_);
-			[scanner scanUpToString:@"</td><td>" intoString:&segment];
+			[scanner scanUpToString:@"</td>" intoString:&segment];
+			[scanner scanString:@"</td>" intoString:&junk];
 			latestVersion_ = [[NSString stringWithString:segment] retain];
-			[scanner scanString:@"</td><td>" intoString:&segment];
+			[scanner scanUpToString:@"<td" intoString:&junk];
+			[scanner scanUpToString:@">" intoString:&junk];
+			[scanner scanString:@">" intoString:&junk];
 			if ([scanner isAtEnd] == YES) {
 				return nil;
 			}
 			//NSLog(latestVersion_);
-			[scanner scanUpToString:@"</td><td>" intoString:&segment];
+			[scanner scanUpToString:@"</td>" intoString:&segment];
+			[scanner scanString:@"</td>" intoString:&junk];
 			date_ = [[NSString stringWithString:segment] retain];
-			[scanner scanString:@"</td><td>" intoString:&segment];
+			[scanner scanUpToString:@"<td>" intoString:&segment];
+			[scanner scanString:@"<td>" intoString:&junk];
 			if ([scanner isAtEnd] == YES) {
 				return nil;
 			}
@@ -90,7 +106,7 @@
 			if ([scanner isAtEnd] == YES) {
 				return nil;
 			}
-			[scanner scanUpToString:@"</td></tr>" intoString:&segment];
+			[scanner scanUpToString:@"</td>" intoString:&segment];
 			description_ = [[NSString stringWithString:segment] retain];
 			//NSLog(description_);
 			
@@ -233,7 +249,8 @@
 	[scanner scanString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanUpToString:@"" intoString:&bareFileName];
 	NSString* zipFileName = [[downloads stringByAppendingString:bareFileName] retain];
-	NSLog([[@"Downloading file " stringByAppendingString:[url_ absoluteString]] stringByAppendingString:zipFileName]);
+	NSLog([@"Downloading file " stringByAppendingString:[url_ absoluteString]]);
+	NSLog([@"To " stringByAppendingString:zipFileName]);
 	if ([UrlGrabber getPage:url_ toFile:zipFileName] == YES) {
 		return [zipFileName autorelease];
 	}
