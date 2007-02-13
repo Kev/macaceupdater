@@ -1,6 +1,6 @@
-MacAceUpdater 0.3 
+MacAceUpdater 0.3.1 
 -----------------
-Date: January 25th 2007
+Date: February 13th 2007
 
 Author:
   Kevin Smith
@@ -48,6 +48,9 @@ Notes
 
 Changes
 -------
+  New in 0.3.1
+  - Now has a more stable parser for http://files.wowace.com, as recent 
+    changes there stopped 0.3 parsing.
 
   New in 0.3
   - Beautiful icons have been donated by DreamScape Visionery.
