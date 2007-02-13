@@ -246,6 +246,7 @@
 	//Download - If Zip already exists, delete and start again
 	NSScanner *scanner = [NSScanner scannerWithString:[url_ relativePath]];
 	NSString *bareFileName=nil;
+	[scanner scanUpToString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanUpToString:@"" intoString:&bareFileName];
 	NSString* zipFileName = [[downloads stringByAppendingString:bareFileName] retain];
