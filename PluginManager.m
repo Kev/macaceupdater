@@ -79,7 +79,7 @@
 											   forKey:@"AddOnsDirectory"];
 	}
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsListURL"] == nil) {
-		[[NSUserDefaults standardUserDefaults] setObject:@"http://grid.13th-floor.org/wowace/" 
+		   [[NSUserDefaults standardUserDefaults] setObject:@"http://www.wowace.com/files/" 
 											   forKey:@"AddOnsListURL"];
 	}
 }
