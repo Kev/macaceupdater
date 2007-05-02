@@ -142,12 +142,17 @@
 	int i=0;
 	while (i < [dirContents count]) {
 		changelog = [dirContents objectAtIndex:i];
+		changelog = [changelog lowercaseString];
 		//NSLog(@"Looking at file:");
 		//NSLog(changelog);
 		if ( [changelog rangeOfString:@"changelog-"].location != NSNotFound ) {
-			//NSLog(@"Found changelog:");
-			//NSLog(changelog);
-			version = [changelog substringWithRange:NSMakeRange(10,6)];
+			NSLog(@"Found changelog:");
+			NSLog(changelog);
+			int start = [changelog rangeOfString:@"-" options:NSBackwardsSearch].location + 1;
+			int end = [changelog rangeOfString:@"." options:NSBackwardsSearch].location;
+			NSLog([NSString stringWithFormat:@"%i", start]);
+			NSLog([NSString stringWithFormat:@"%i", end]);
+			version = [changelog substringWithRange:NSMakeRange(start,end - start)];
 			//NSLog(version);
 		}
 		i++;
@@ -200,7 +205,14 @@
 	if ([installedVersion_ isEqualToString:@""]) {
 		//no version is installed, so no reason to upgrade
 	} else {
-		if ([[self installedVersion] isEqualToString:latestVersion_]) {
+        NSMutableString *latestToInt = [[self latestVersion] mutableCopy];
+        NSMutableString *installedToInt = [[self installedVersion] mutableCopy];
+        NSRange range = {0, 1};
+        [latestToInt deleteCharactersInRange:range];
+        [installedToInt deleteCharactersInRange:range];
+        int latestInt = [latestToInt intValue];
+        int installedInt = [installedToInt intValue];
+		if (installedInt >= latestInt) {
 			//We already have the latest version
 		} else {
 			[self setSelectedForInstall:true];
