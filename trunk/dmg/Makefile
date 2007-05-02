@@ -19,7 +19,7 @@
 ################################################################################
 
 NAME=MacAceUpdater
-VERSION=0.3.1
+VERSION=0.3.2
 
 SOURCE_DIR=../build/Debug
 SOURCE_FILES=MacAceUpdater.app # README COPYING
