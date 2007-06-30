@@ -47,7 +47,7 @@
 
 - (PluginList*) pluginList
 {
-
+	
 	return pluginList_;
 }
 
