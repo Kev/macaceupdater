@@ -21,7 +21,7 @@
 
 #import "Plugin.h"
 #import "PluginManager.h"
-
+#import <AGRegex/AGRegex.h>
 
 @implementation Plugin
 
@@ -148,11 +148,13 @@
 		if ( [changelog rangeOfString:@"changelog-"].location != NSNotFound ) {
 			NSLog(@"Found changelog:");
 			NSLog(changelog);
-			int start = [changelog rangeOfString:@"-" options:NSBackwardsSearch].location + 1;
-			int end = [changelog rangeOfString:@"." options:NSBackwardsSearch].location;
-			NSLog([NSString stringWithFormat:@"%i", start]);
-			NSLog([NSString stringWithFormat:@"%i", end]);
-			version = [changelog substringWithRange:NSMakeRange(start,end - start)];
+			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"changelog.*-(r.+).txt" options:AGRegexCaseInsensitive]; 
+			AGRegexMatch *match = [regex findInString:changelog];
+			if ([match count] == 2) { 
+				version = [match groupAtIndex:1];
+			} else {
+				NSLog(@"ERROR: regex failure on changelog version extraction");
+			}
 			//NSLog(version);
 		}
 		i++;

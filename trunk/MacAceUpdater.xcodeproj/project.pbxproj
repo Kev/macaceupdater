@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		221A01540B3F14B2002965D4 /* PluginList.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A01530B3F14B2002965D4 /* PluginList.m */; };
 		221A03E40B3F3FA9002965D4 /* Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A03E30B3F3FA9002965D4 /* Plugin.m */; };
+		222043410C3701F50035F5BA /* AGRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222043400C3701F50035F5BA /* AGRegex.framework */; };
+		2220436E0C37030C0035F5BA /* AGRegex.framework in Copy AGRegexp */ = {isa = PBXBuildFile; fileRef = 222043400C3701F50035F5BA /* AGRegex.framework */; };
 		22232A150B4351CD00F75602 /* Add.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 22232A140B4351CD00F75602 /* Add.tiff */; };
 		225088B40B40696900789E7B /* UrlGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 225088B30B40696900789E7B /* UrlGrabber.m */; };
 		2273D14D0B58E6300059AB87 /* ApplicationIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2273D1450B58E6300059AB87 /* ApplicationIcon.icns */; };
@@ -39,6 +41,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		2220436C0C3702DF0035F5BA /* Copy AGRegexp */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2220436E0C37030C0035F5BA /* AGRegex.framework in Copy AGRegexp */,
+			);
+			name = "Copy AGRegexp";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		227C529B0B4B16E20041E5C6 /* Copy Growl */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,6 +84,7 @@
 		221A01530B3F14B2002965D4 /* PluginList.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PluginList.m; sourceTree = "<group>"; };
 		221A03E20B3F3FA9002965D4 /* Plugin.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Plugin.h; sourceTree = "<group>"; };
 		221A03E30B3F3FA9002965D4 /* Plugin.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Plugin.m; sourceTree = "<group>"; };
+		222043400C3701F50035F5BA /* AGRegex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGRegex.framework; path = build/Development/AGRegex.framework; sourceTree = "<group>"; };
 		22232A140B4351CD00F75602 /* Add.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Add.tiff; sourceTree = "<group>"; };
 		225088B20B40696900789E7B /* UrlGrabber.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UrlGrabber.h; sourceTree = "<group>"; };
 		225088B30B40696900789E7B /* UrlGrabber.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UrlGrabber.m; sourceTree = "<group>"; };
@@ -113,6 +127,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				227C52970B4B16C70041E5C6 /* Growl.framework in Frameworks */,
 				22AA960C0B68BF4D009CBBB8 /* Sparkle.framework in Frameworks */,
+				222043410C3701F50035F5BA /* AGRegex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +156,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				222043400C3701F50035F5BA /* AGRegex.framework */,
 				22AA960B0B68BF4D009CBBB8 /* Sparkle.framework */,
 				227C52960B4B16C70041E5C6 /* Growl.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -233,6 +249,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				227C529B0B4B16E20041E5C6 /* Copy Growl */,
 				22AA96200B68BF64009CBBB8 /* Copy Sparkle */,
+				2220436C0C3702DF0035F5BA /* Copy AGRegexp */,
 			);
 			buildRules = (
 			);
@@ -330,8 +347,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Development\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -354,8 +373,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Development\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
