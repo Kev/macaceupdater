@@ -1,0 +1,136 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Development;
+		activeExecutable = 222042FB0C3701790035F5BA /* RegexTest (Application) */;
+		activeTarget = 1C6A0C250865E09C009EE6D2 /* AGRegex (Framework) */;
+		codeSenseManager = 222043290C3701900035F5BA /* Code sense */;
+		executables = (
+			222042FB0C3701790035F5BA /* RegexTest (Application) */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48.1626,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					200,
+					63,
+					20,
+					48.1626,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 204931449;
+			PBXWorkspaceStateSaveDate = 204931449;
+		};
+		perUserProjectItems = {
+			222043210C37018F0035F5BA /* PBXTextBookmark */ = 222043210C37018F0035F5BA /* PBXTextBookmark */;
+			222043220C37018F0035F5BA /* PBXTextBookmark */ = 222043220C37018F0035F5BA /* PBXTextBookmark */;
+		};
+		sourceControlManager = 222043280C3701900035F5BA /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	1C6A0C250865E09C009EE6D2 /* AGRegex (Framework) */ = {
+		activeExec = 0;
+	};
+	1C6A0C370865E09C009EE6D2 /* RegexTest (Application) */ = {
+		activeExec = 0;
+		executables = (
+			222042FB0C3701790035F5BA /* RegexTest (Application) */,
+		);
+	};
+	1CC620830B06DA6D00587C97 /* pcre_compile.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {512, 73948}}";
+			sepNavSelRange = "{29803, 74}";
+			sepNavVisRect = "{{0, 11212}, {459, 186}}";
+		};
+	};
+	222042FB0C3701790035F5BA /* RegexTest (Application) */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "RegexTest (Application)";
+		sourceDirectories = (
+		);
+	};
+	222043210C37018F0035F5BA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness";
+		fRef = 1CC620830B06DA6D00587C97 /* pcre_compile.c */;
+		rLen = 1;
+		rLoc = 807;
+		rType = 1;
+	};
+	222043220C37018F0035F5BA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1CC620830B06DA6D00587C97 /* pcre_compile.c */;
+		name = "if (namelen == ptr - thisname && strncmp(name, thisname, namelen) == 0)";
+		rLen = 74;
+		rLoc = 29803;
+		rType = 0;
+		vrLen = 319;
+		vrLoc = 29596;
+	};
+	222043280C3701900035F5BA /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	222043290C3701900035F5BA /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}
