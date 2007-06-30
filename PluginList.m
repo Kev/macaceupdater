@@ -137,22 +137,22 @@
 	NSScanner *scanner = [NSScanner scannerWithString:page];
 	NSString* junkline;
 	[scanner scanUpToString:@"<tbody>" intoString:&junkline];
-	NSLog(@"Initial string =");
-	NSLog(junkline);
+	//NSLog(@"Initial string =");
+	//NSLog(junkline);
 	[scanner scanString:@"<tbody>" intoString:&junkline];
 	
 	while ( [scanner isAtEnd] == NO) {
 		NSString* line;
 		[scanner scanUpToString:@"</tr>" intoString:&line];
 		[scanner scanUpToString:@"\n" intoString:nil];
-		NSLog(@"Line:");
-		NSLog(line);
+		//NSLog(@"Line:");
+		//NSLog(line);
 		Plugin* plugin = [[Plugin alloc] initFromString:line withBaseUrl:url];
 		
 		//NSLog(line);
 		if ( plugin != nil) {
-			NSLog(@"Adding line");
-			NSLog([plugin name]);
+			//NSLog(@"Adding line");
+			//NSLog([plugin name]);
 			[plugins_ addObject: [plugin retain]];
 		} else {
 			NSLog(@"Nil pointer from line:");

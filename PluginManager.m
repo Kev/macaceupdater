@@ -59,6 +59,17 @@
 
 - (void) setAddOnDirWithString:(NSString*) dir
 {
+	if ([dir length] == 0) {
+		NSLog(@"Trying to set addondir to 0 length string");
+		return;
+	}
+	if (![[dir substringFromIndex:[dir length] - 1] isEqualTo:@"/"]) {
+		NSLog(@"Unable to find trailing / on directory, adding");
+		NSLog(dir);
+		dir = [dir stringByAppendingString:@"/"];
+	}
+	NSLog(@"Setting addon dir to");
+	NSLog(dir);
 	[[NSUserDefaults standardUserDefaults] setObject:dir
 											   forKey:@"AddOnsDirectory"];
 }

@@ -65,13 +65,13 @@
 			[nameScanner scanString:@"<a href=\"" intoString:&segment2];
 			[nameScanner scanUpToString:@"\">" intoString:&segment2];
 			if ([segment2 hasPrefix:@"http://"]) {
-				NSLog(@"Full URL");
+				//NSLog(@"Full URL");
 				url_ = [[NSURL URLWithString:segment2] retain];
 			} else {
 				url_ = [[NSURL URLWithString:segment2 relativeToURL:baseUrl] retain];
 			}
-			NSLog(@"Creating URL from:");
-			NSLog(segment2);
+			//NSLog(@"Creating URL from:");
+			//NSLog(segment2);
 			
 			[nameScanner scanString:@"\">" intoString:&segment2];
 			[nameScanner scanUpToString:@"</a>" intoString:&segment2];
@@ -155,7 +155,7 @@
 			} else {
 				NSLog(@"ERROR: regex failure on changelog version extraction");
 			}
-			//NSLog(version);
+			NSLog(version);
 		}
 		i++;
 	}
