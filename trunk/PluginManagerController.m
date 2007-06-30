@@ -312,6 +312,24 @@
 	[preferencesAddOnsDir setStringValue:[PluginManager addonDir]];
 }
 
+- (IBAction)addonsBrowse:(id)sender
+{
+    int result;
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+	[openPanel setAllowsMultipleSelection:NO];
+	[openPanel setCanChooseFiles:NO];
+	[openPanel setCanChooseDirectories:YES];
+	result = [openPanel runModalForDirectory:[preferencesAddOnsDir stringValue] file:nil types:nil];
+    if (result != NSOKButton) {
+		return;
+	}
+    NSArray *addonPath = [openPanel filenames];
+	if ([addonPath count] < 1) {
+		NSLog(@"ERROR: filesToOpen count < 1");
+	}
+	[preferencesAddOnsDir setStringValue:[addonPath objectAtIndex:0]];
+}
+
 @end
 
 @implementation PluginManagerController (ToolbarDelegateCategory)

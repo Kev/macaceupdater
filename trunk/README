@@ -48,6 +48,12 @@ Notes
 
 Changes
 -------
+  New in 0.3.3
+  - The preferences dialog now allows browsing to the addons dir, and no
+    longer requires the user to enter a trailing delimiter ('/')
+  - The installed version detection code is now much more robust.
+  - Crashes have been fixed with the new version code.
+
   New in 0.3.2
   - Now has a more stable parser for changelog versions, as recent changes
     stopped 0.3.1 parsing

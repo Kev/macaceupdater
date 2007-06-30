@@ -47,6 +47,7 @@
 - (IBAction)initialiseGUI:(id)sender;
 - (IBAction)applyProperties:(id)sender;
 - (IBAction)resetProperties:(id)sender;
+- (IBAction)addonsBrowse:(id)sender;
 - (IBAction)selectOutdated:(id)sender;
 - (IBAction)selectAll:(id)sender;
 - (IBAction)selectNone:(id)sender;

@@ -8,9 +8,15 @@
         {
             ACTIONS = {
                 InstallPlugins = id; 
+                RescanPlugins = id; 
+                UninstallPlugins = id; 
+                addonsBrowse = id; 
                 applyProperties = id; 
                 initialiseGUI = id; 
                 resetProperties = id; 
+                selectAll = id; 
+                selectInvert = id; 
+                selectNone = id; 
                 selectOutdated = id; 
             }; 
             CLASS = PluginManagerController; 
@@ -23,7 +29,7 @@
                 preferencesListURL = id; 
                 prefsWindow = id; 
                 progressText = NSTextView; 
-                searchItemView = id; 
+                searchItemView = NSSearchField; 
                 statusText = NSTextField; 
             }; 
             SUPERCLASS = NSObject; 
