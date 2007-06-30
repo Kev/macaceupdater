@@ -4,6 +4,7 @@
 		activeBuildConfigurationName = Development;
 		activeExecutable = 222042FB0C3701790035F5BA /* RegexTest (Application) */;
 		activeTarget = 1C6A0C250865E09C009EE6D2 /* AGRegex (Framework) */;
+		breakpointsGroup = 2220456D0C3721FF0035F5BA /* XCBreakpointsBucket */;
 		codeSenseManager = 222043290C3701900035F5BA /* Code sense */;
 		executables = (
 			222042FB0C3701790035F5BA /* RegexTest (Application) */,
@@ -56,10 +57,6 @@
 			PBXPerProjectTemplateStateSaveDate = 204931449;
 			PBXWorkspaceStateSaveDate = 204931449;
 		};
-		perUserProjectItems = {
-			222043210C37018F0035F5BA /* PBXTextBookmark */ = 222043210C37018F0035F5BA /* PBXTextBookmark */;
-			222043220C37018F0035F5BA /* PBXTextBookmark */ = 222043220C37018F0035F5BA /* PBXTextBookmark */;
-		};
 		sourceControlManager = 222043280C3701900035F5BA /* Source Control */;
 		userBuildSettings = {
 		};
@@ -103,24 +100,6 @@
 		sourceDirectories = (
 		);
 	};
-	222043210C37018F0035F5BA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness";
-		fRef = 1CC620830B06DA6D00587C97 /* pcre_compile.c */;
-		rLen = 1;
-		rLoc = 807;
-		rType = 1;
-	};
-	222043220C37018F0035F5BA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1CC620830B06DA6D00587C97 /* pcre_compile.c */;
-		name = "if (namelen == ptr - thisname && strncmp(name, thisname, namelen) == 0)";
-		rLen = 74;
-		rLoc = 29803;
-		rType = 0;
-		vrLen = 319;
-		vrLoc = 29596;
-	};
 	222043280C3701900035F5BA /* Source Control */ = {
 		isa = PBXSourceControlManager;
 		fallbackIsa = XCSourceControlManager;
@@ -132,5 +111,11 @@
 	222043290C3701900035F5BA /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	2220456D0C3721FF0035F5BA /* XCBreakpointsBucket */ = {
+		isa = XCBreakpointsBucket;
+		name = AGRegex;
+		objects = (
+		);
 	};
 }

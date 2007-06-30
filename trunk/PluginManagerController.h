@@ -56,6 +56,7 @@
 - (void) markedUpdate;
 - (void) statusUpdate:(NSString*)status;
 - (void) setupToolbar;
+- (BOOL)checkAddonsDirExists;
 @end
 
 @interface PluginManagerController (ToolbarDelegateCategory)

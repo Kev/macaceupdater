@@ -46,6 +46,7 @@
 	[progressText setEditable:false];
 	pluginManager_ = [[PluginManager alloc] init];
 	
+	
 	[pluginList setDataSource:[pluginManager_ pluginList]];
 	
 	
@@ -57,10 +58,27 @@
 	
 	[self resetProperties:nil];
 	
+	[self checkAddonsDirExists];
 	[self statusUpdate:@"Ready"];
 	
 	
 	
+}
+
+- (BOOL)checkAddonsDirExists
+{
+	NSFileManager *manager = [NSFileManager defaultManager];
+	if (![manager fileExistsAtPath:[PluginManager addonDir]]) {
+		[progressText setEditable:true];
+		[progressText insertText:@"Addons dir not found; please go set the correct location in the Preferences\n"];
+		[progressText setEditable:false];
+		/*[prefsWindow makeKeyAndOrderFront:nil];
+		[mainWindow orderBack:self];*/
+		NSRunAlertPanel(@"Invalid Addons Dir", @"The AddOns directory cannot be found; please set the path in the application Preferences.", @"OK",nil,nil);
+		[prefsWindow orderFront:self];
+		return false;
+	}
+	return true;
 }
 
 - (void)markedUpdate
@@ -82,6 +100,9 @@
 
 - (IBAction)RescanPlugins:(id)sender
 {
+	if (![self checkAddonsDirExists]) {
+		return;
+	}
 	[progressText setEditable:true];
 	[progressText insertText:@"Scanning installed addons\n"];
 	[progressText setEditable:false];
@@ -104,6 +125,9 @@
 
 - (IBAction)InstallPlugins:(id)sender
 {
+	if (![self checkAddonsDirExists]) {
+		return;
+	}
 	[progressText setEditable:true];
 	[progressText insertText:@"Installing Selected plugins\n"];
 	[progressText setEditable:false];
@@ -172,6 +196,9 @@
 
 - (IBAction)UninstallPlugins:(id)sender
 {
+	if (![self checkAddonsDirExists]) {
+		return;
+	}
 	[progressText setEditable:true];
 	[progressText insertText:@"Uninstalling Selected plugins\n"];
 	[progressText setEditable:false];
@@ -246,6 +273,9 @@
 
 - (IBAction)selectOutdated:(id)sender
 {
+	if (![self checkAddonsDirExists]) {
+		return;
+	}
 	[[pluginManager_ pluginList] selectOutdated];
 	[searchItemView setStringValue:@""];
 	[[pluginManager_ pluginList] searchPluginsForString:@""];
@@ -296,7 +326,6 @@
 - (IBAction)applyProperties:(id)sender
 {
 	NSLog(@"Applying");
-	
 	[pluginManager_ setListURLWithString:[preferencesListURL stringValue]];
 	if ([[PluginManager addonDir] isEqualToString:
 					[preferencesAddOnsDir stringValue]] == NO) {
