@@ -1,10 +1,10 @@
-MacAceUpdater 0.3.2 
+MacAceUpdater 0.4.0 
 -----------------
-Date: May 2nd 2007
+Date: July 1st 2007
 
 Author:
   Kevin Smith
-  wau-feedback@kismith.co.uk
+  macaceupdater@kismith.co.uk
   http://kismith.co.uk
 
   Instructions for compilation and installation are included in the 
@@ -48,7 +48,7 @@ Notes
 
 Changes
 -------
-  New in 0.3.3
+  New in 0.4
   - The preferences dialog now allows browsing to the addons dir, and no
     longer requires the user to enter a trailing delimiter ('/')
   - The installed version detection code is now much more robust.
