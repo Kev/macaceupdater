@@ -32,7 +32,7 @@
 	Boolean selectedForInstall_;
 }
 
-- (Plugin*) initFromString:(NSString*)string withBaseUrl:(NSURL*)baseUrl;
+- (Plugin*) initFromDictionary:(NSDictionary*)dictionary;
 - (NSString*) name;
 - (NSString*) pluginDescription;
 - (NSString*) latestVersion;

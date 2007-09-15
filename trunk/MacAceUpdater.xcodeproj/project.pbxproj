@@ -12,6 +12,10 @@
 		222043410C3701F50035F5BA /* AGRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222043400C3701F50035F5BA /* AGRegex.framework */; };
 		2220436E0C37030C0035F5BA /* AGRegex.framework in Copy AGRegexp */ = {isa = PBXBuildFile; fileRef = 222043400C3701F50035F5BA /* AGRegex.framework */; };
 		22232A150B4351CD00F75602 /* Add.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 22232A140B4351CD00F75602 /* Add.tiff */; };
+		223A3C1C0C9BC81A000CE798 /* RSS.h in Copy Growl */ = {isa = PBXBuildFile; fileRef = 223A3C1A0C9BC81A000CE798 /* RSS.h */; };
+		223A3C1D0C9BC81A000CE798 /* RSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A3C1B0C9BC81A000CE798 /* RSS.m */; };
+		223A3C210C9BC858000CE798 /* NSString+extras.h in Copy Growl */ = {isa = PBXBuildFile; fileRef = 223A3C1F0C9BC858000CE798 /* NSString+extras.h */; };
+		223A3C220C9BC858000CE798 /* NSString+extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A3C200C9BC858000CE798 /* NSString+extras.m */; };
 		225088B40B40696900789E7B /* UrlGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 225088B30B40696900789E7B /* UrlGrabber.m */; };
 		2273D14D0B58E6300059AB87 /* ApplicationIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2273D1450B58E6300059AB87 /* ApplicationIcon.icns */; };
 		2273D14E0B58E6300059AB87 /* ApplicationIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2273D1460B58E6300059AB87 /* ApplicationIcon.tiff */; };
@@ -59,6 +63,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				227C529D0B4B16FA0041E5C6 /* Growl.framework in Copy Growl */,
+				223A3C1C0C9BC81A000CE798 /* RSS.h in Copy Growl */,
+				223A3C210C9BC858000CE798 /* NSString+extras.h in Copy Growl */,
 			);
 			name = "Copy Growl";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +92,10 @@
 		221A03E30B3F3FA9002965D4 /* Plugin.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Plugin.m; sourceTree = "<group>"; };
 		222043400C3701F50035F5BA /* AGRegex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGRegex.framework; path = build/Development/AGRegex.framework; sourceTree = "<group>"; };
 		22232A140B4351CD00F75602 /* Add.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Add.tiff; sourceTree = "<group>"; };
+		223A3C1A0C9BC81A000CE798 /* RSS.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = RSS.h; path = RSSInspector/RSS.h; sourceTree = "<group>"; };
+		223A3C1B0C9BC81A000CE798 /* RSS.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = RSS.m; path = RSSInspector/RSS.m; sourceTree = "<group>"; };
+		223A3C1F0C9BC858000CE798 /* NSString+extras.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "NSString+extras.h"; path = "RSSInspector/NSString+extras.h"; sourceTree = "<group>"; };
+		223A3C200C9BC858000CE798 /* NSString+extras.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = "NSString+extras.m"; path = "RSSInspector/NSString+extras.m"; sourceTree = "<group>"; };
 		225088B20B40696900789E7B /* UrlGrabber.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UrlGrabber.h; sourceTree = "<group>"; };
 		225088B30B40696900789E7B /* UrlGrabber.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UrlGrabber.m; sourceTree = "<group>"; };
 		2273D1450B58E6300059AB87 /* ApplicationIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ApplicationIcon.icns; path = icons/ApplicationIcon.icns; sourceTree = "<group>"; };
@@ -137,6 +147,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				223A3C1F0C9BC858000CE798 /* NSString+extras.h */,
+				223A3C200C9BC858000CE798 /* NSString+extras.m */,
+				223A3C1A0C9BC81A000CE798 /* RSS.h */,
+				223A3C1B0C9BC81A000CE798 /* RSS.m */,
 				22C8C8B00B3EEB5F00B29632 /* PluginManager.m */,
 				22C8C8AF0B3EEB5F00B29632 /* PluginManager.h */,
 				22C8C8B20B3EEB6500B29632 /* PluginManagerController.m */,
@@ -315,6 +329,8 @@
 				221A03E40B3F3FA9002965D4 /* Plugin.m in Sources */,
 				225088B40B40696900789E7B /* UrlGrabber.m in Sources */,
 				22B8E13A0B482B6500642B9B /* Notifications.m in Sources */,
+				223A3C1D0C9BC81A000CE798 /* RSS.m in Sources */,
+				223A3C220C9BC858000CE798 /* NSString+extras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

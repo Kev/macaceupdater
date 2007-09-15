@@ -41,7 +41,7 @@
 
 - (NSURL*) listURL;
 {
-	return [NSURL URLWithString: [[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsListURL"]];
+	return [NSURL URLWithString: [[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsListFeedURL"]];
 
 }
 
@@ -77,7 +77,7 @@
 - (void) setListURLWithString:(NSString*) URL
 {
 	[[NSUserDefaults standardUserDefaults] setObject:URL
-											   forKey:@"AddOnsListURL"];
+											   forKey:@"AddOnsListFeedURL"];
 }
 
 	
@@ -89,9 +89,9 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@"/Applications/World of Warcraft/Interface/AddOns/" 
 											   forKey:@"AddOnsDirectory"];
 	}
-	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsListURL"] == nil) {
-		   [[NSUserDefaults standardUserDefaults] setObject:@"http://www.wowace.com/files/" 
-											   forKey:@"AddOnsListURL"];
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AddOnsListFeedURL"] == nil) {
+		   [[NSUserDefaults standardUserDefaults] setObject:@"http://www.wowace.com/files/latest.xml" 
+											   forKey:@"AddOnsListFeedURL"];
 	}
 }
 

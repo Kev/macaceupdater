@@ -25,93 +25,20 @@
 
 @implementation Plugin
 
-- (Plugin*) initFromString:(NSString*)string withBaseUrl:(NSURL*)baseUrl {
-	if ( [string rangeOfString:@"<tr>"].location == NSNotFound ) {
-		return nil;
-	}
+- (Plugin*) initFromDictionary:(NSDictionary*)dictionary {
 
 	self = [super init];
 	if (self != nil) {
-		name_ = @"";
-		description_ = @"";
+		name_ = [dictionary objectForKey: @"title"];
+		description_ = [dictionary objectForKey: @"description"];
 		installedVersion_ = @"";
-		latestVersion_ = @"";
-		url_ = @"";
-		date_ = @"";
+		latestVersion_ = [dictionary objectForKey: @"wowaddon:version"];
+		url_ = [[NSURL alloc] initWithString: [dictionary objectForKey: @"guid"]];
+		NSLog(@"Adding URL");
+		NSLog([dictionary objectForKey: @"guid"]);
+		date_ = [dictionary objectForKey: @"pubDate"];
 		selectedForInstall_ = false;
 		
-		NSScanner *scanner = [NSScanner scannerWithString:string];
-	
-		//while ( [scanner isAtEnd] == NO) {
-		
-			NSString *segment=nil;
-			NSString *junk=nil;
-			//NSLog(@"Line, Segments");
-			//NSLog(string);
-			if ([scanner isAtEnd] == YES) {
-				return nil;
-			}
-			[scanner scanUpToString:@"<td>" intoString:&junk];
-			[scanner scanString:@"<td>" intoString:&junk];
-			if ([scanner isAtEnd] == YES) {
-				return nil;
-			}
-			//NSLog(segment);
-			[scanner scanUpToString:@"</td>" intoString:&segment];
-			[scanner scanString:@"</td>" intoString:&junk];
-			
-			NSScanner *nameScanner = [NSScanner scannerWithString:segment];
-			NSString *segment2=nil;
-			[nameScanner scanString:@"<a href=\"" intoString:&segment2];
-			[nameScanner scanUpToString:@"\">" intoString:&segment2];
-			if ([segment2 hasPrefix:@"http://"]) {
-				//NSLog(@"Full URL");
-				url_ = [[NSURL URLWithString:segment2] retain];
-			} else {
-				url_ = [[NSURL URLWithString:segment2 relativeToURL:baseUrl] retain];
-			}
-			//NSLog(@"Creating URL from:");
-			//NSLog(segment2);
-			
-			[nameScanner scanString:@"\">" intoString:&segment2];
-			[nameScanner scanUpToString:@"</a>" intoString:&segment2];
-			
-			name_ = [[NSString stringWithString:segment2] retain];
-			[scanner scanUpToString:@"<td>" intoString:&segment];
-			[scanner scanString:@"<td>" intoString:&junk];
-			if ([scanner isAtEnd] == YES) {
-				return nil;
-			}
-			
-			//NSLog(name_);
-			[scanner scanUpToString:@"</td>" intoString:&segment];
-			[scanner scanString:@"</td>" intoString:&junk];
-			latestVersion_ = [[NSString stringWithString:segment] retain];
-			[scanner scanUpToString:@"<td" intoString:&junk];
-			[scanner scanUpToString:@">" intoString:&junk];
-			[scanner scanString:@">" intoString:&junk];
-			if ([scanner isAtEnd] == YES) {
-				return nil;
-			}
-			//NSLog(latestVersion_);
-			[scanner scanUpToString:@"</td>" intoString:&segment];
-			[scanner scanString:@"</td>" intoString:&junk];
-			date_ = [[NSString stringWithString:segment] retain];
-			[scanner scanUpToString:@"<td>" intoString:&segment];
-			[scanner scanString:@"<td>" intoString:&junk];
-			if ([scanner isAtEnd] == YES) {
-				return nil;
-			}
-			//NSLog(date_);
-			if ([scanner isAtEnd] == YES) {
-				return nil;
-			}
-			[scanner scanUpToString:@"</td>" intoString:&segment];
-			description_ = [[NSString stringWithString:segment] retain];
-			//NSLog(description_);
-			
-			
-		//}
 		[self findInstalledVersion];
 	}
 	
@@ -264,7 +191,8 @@
 	[scanner scanString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanUpToString:@"" intoString:&bareFileName];
 	NSString* zipFileName = [[downloads stringByAppendingString:bareFileName] retain];
-	NSLog([@"Downloading file " stringByAppendingString:[url_ absoluteString]]);
+	NSLog(@"Downloading file ");
+	NSLog([url_ absoluteString]);
 	NSLog([@"To " stringByAppendingString:zipFileName]);
 	if ([UrlGrabber getPage:url_ toFile:zipFileName] == YES) {
 		return [zipFileName autorelease];

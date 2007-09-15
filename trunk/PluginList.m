@@ -20,6 +20,7 @@
  */
 
 #import "PluginList.h"
+#import "RSSInspector/RSS.h"
 
 //These fix the graphics on sorting
 //FIXME: nuke
@@ -33,7 +34,7 @@
 - (PluginList*) init
 {
 	[super init];
-	plugins_ = [[NSMutableArray alloc] initWithCapacity:500];
+	plugins_ = [[NSMutableArray alloc] initWithCapacity:1000];
 	activeSet_ = nil;
 	subSet_ = nil;
 	[self searchPluginsForString:@""];
@@ -132,6 +133,32 @@
 - (void)loadFromUrl:(NSURL*) url
 {
 
+	RSS* rssFeed = [[RSS alloc] initWithURL: url normalize: YES];
+
+	NSEnumerator *enumerator = [[rssFeed newsItems] objectEnumerator];
+	NSDictionary *item;
+	int ix = 0;
+	
+	while (item = [enumerator nextObject]) {
+		ix++;
+		NSLog([NSString stringWithFormat: @"Reading addon #%d from rss\n", ix]);
+			
+		/*Each item is a dictionary.*/
+		Plugin* plugin = [[Plugin alloc] initFromDictionary:item];
+		//NSLog(line);
+		if ( plugin != nil) {
+			//NSLog(@"Adding line");
+			//NSLog([plugin name]);
+			[plugins_ addObject: [plugin retain]];
+		} else {
+			NSLog(@"Nil pointer from line:");
+		}
+	}
+
+	[rssFeed release];
+
+	//Old hacky html scraping code:
+	/*
 	//get the plugin list file into memory
 	NSString *page = [[UrlGrabber getPageAsString:url] retain];
 	NSScanner *scanner = [NSScanner scannerWithString:page];
@@ -157,7 +184,7 @@
 		} else {
 			NSLog(@"Nil pointer from line:");
 		}
-	}
+	}*/
 	//NSLog(@"Added this many plugins:");
 	//NSLog([NSString stringWithFormat:@"%d", [plugins_ count]]);
 }
