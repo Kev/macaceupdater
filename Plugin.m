@@ -72,6 +72,20 @@
 		changelog = [changelog lowercaseString];
 		//NSLog(@"Looking at file:");
 		//NSLog(changelog);
+		if ( [changelog rangeOfString:@"macaceupdater-version-"].location != NSNotFound ) {
+			NSLog(@"Found mau version:");
+			NSLog(changelog);
+			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"macaceupdater-version-(.+)\.txt" options:AGRegexCaseInsensitive]; 
+			AGRegexMatch *match = [regex findInString:changelog];
+			if ([match count] == 2) { 
+				version = [match groupAtIndex:1];
+			} else {
+				NSLog(@"ERROR: regex failure on mau version extraction");
+			}
+			NSLog(version);
+			[regex release];
+			break;
+		}
 		if ( [changelog rangeOfString:@"changelog-"].location != NSNotFound ) {
 			NSLog(@"Found changelog:");
 			NSLog(changelog);
@@ -135,14 +149,14 @@
 	if ([installedVersion_ isEqualToString:@""]) {
 		//no version is installed, so no reason to upgrade
 	} else {
-        NSMutableString *latestToInt = [[self latestVersion] mutableCopy];
-        NSMutableString *installedToInt = [[self installedVersion] mutableCopy];
+        NSMutableString *latestToDouble = [[self latestVersion] mutableCopy];
+        NSMutableString *installedToDouble = [[self installedVersion] mutableCopy];
         NSRange range = {0, 1};
-        [latestToInt deleteCharactersInRange:range];
-        [installedToInt deleteCharactersInRange:range];
-        int latestInt = [latestToInt intValue];
-        int installedInt = [installedToInt intValue];
-		if (installedInt >= latestInt) {
+        [latestToDouble deleteCharactersInRange:range];
+        [installedToDouble deleteCharactersInRange:range];
+        double latestDouble = [latestToDouble doubleValue];
+        double installedDouble = [installedToDouble doubleValue];
+		if (installedDouble >= latestDouble) {
 			//We already have the latest version
 		} else {
 			[self setSelectedForInstall:true];
@@ -248,6 +262,19 @@
 	[unzipTask release];
 	[downloadedArchive release];
 	
+	NSString* versionFile=nil;
+	versionFile = [NSString stringWithString:[PluginManager addonDir]];
+	versionFile = [versionFile stringByAppendingString:[self name]];
+	versionFile = [versionFile stringByAppendingString:@"/macaceupdater-version-"];
+	versionFile = [versionFile stringByAppendingString:latestVersion_];
+	versionFile = [versionFile stringByAppendingString:@".txt"];
+	
+	[[NSData dataWithBytes:"empty" length:5] writeToFile:[versionFile
+                 stringByExpandingTildeInPath]
+                 atomically:YES];
+	NSLog(@"Storing updated version in ");
+	NSLog(versionFile);
+	[self setSelectedForInstall:false];
 	return YES;
 }
 
