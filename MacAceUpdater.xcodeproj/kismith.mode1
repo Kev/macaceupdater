@@ -292,7 +292,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>808 174 815 712 0 0 1680 1028 </string>
+						<string>1906 194 815 712 1680 26 1280 1024 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -303,14 +303,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Plugin.m</string>
+								<string>Plugin.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -318,11 +316,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Plugin.m</string>
+										<string>Plugin.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>223A3CDF0C9BFD61000CE798</string>
+										<string>223A3CEC0C9D3DC7000CE798</string>
 										<key>history</key>
 										<array>
 											<string>22232A1E0B4352DC00F75602</string>
@@ -344,8 +342,8 @@
 											<string>223A3C8F0C9BD171000CE798</string>
 											<string>223A3CA80C9BD213000CE798</string>
 											<string>223A3CAF0C9BD2EA000CE798</string>
-											<string>223A3CC70C9BD565000CE798</string>
-											<string>223A3CC80C9BD565000CE798</string>
+											<string>223A3CE90C9D3DC7000CE798</string>
+											<string>223A3CEA0C9D3DC7000CE798</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -390,6 +388,7 @@
 											<string>223A3CB20C9BD2EA000CE798</string>
 											<string>223A3CC90C9BD565000CE798</string>
 											<string>223A3CCA0C9BD565000CE798</string>
+											<string>223A3CEB0C9D3DC7000CE798</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -403,7 +402,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {607, 475}}</string>
 								<key>RubberWindowFrame</key>
-								<string>808 174 815 712 0 0 1680 1028 </string>
+								<string>1906 194 815 712 1680 26 1280 1024 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -411,6 +410,8 @@
 							<string>475pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -423,7 +424,7 @@
 								<key>Frame</key>
 								<string>{{0, 480}, {607, 191}}</string>
 								<key>RubberWindowFrame</key>
-								<string>808 174 815 712 0 0 1680 1028 </string>
+								<string>1906 194 815 712 1680 26 1280 1024 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -589,11 +590,11 @@
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>223A3C6A0C9BCCCE000CE798</string>
 		<string>2269BB190B407FB800FF55BB</string>
-		<string>/Users/kismith/devel/macaceupdater/mainline-google/MacAceUpdater.xcodeproj</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
+		<string>/Users/kismith/devel/macaceupdater/mainline-google/MacAceUpdater.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>808 174 815 712 0 0 1680 1028 </string>
+	<string>1906 194 815 712 1680 26 1280 1024 </string>
 	<key>WindowTools</key>
 	<array>
 		<dict>
