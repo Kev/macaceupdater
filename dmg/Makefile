@@ -19,7 +19,7 @@
 ################################################################################
 
 NAME=MacAceUpdater
-VERSION=0.4
+VERSION=0.5-devel_$(shell date +"%Y%m%d")
 
 SOURCE_DIR=../build/Debug
 SOURCE_FILES=MacAceUpdater.app # README COPYING
