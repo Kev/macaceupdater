@@ -75,7 +75,7 @@
 		if ( [changelog rangeOfString:@"changelog-"].location != NSNotFound ) {
 			NSLog(@"Found changelog:");
 			NSLog(changelog);
-			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"changelog.*-(r.+).txt" options:AGRegexCaseInsensitive]; 
+			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"changelog.*-r(.+)\.txt" options:AGRegexCaseInsensitive]; 
 			AGRegexMatch *match = [regex findInString:changelog];
 			if ([match count] == 2) { 
 				version = [match groupAtIndex:1];
