@@ -29,14 +29,14 @@
 
 	self = [super init];
 	if (self != nil) {
-		name_ = [dictionary objectForKey: @"title"];
-		description_ = [dictionary objectForKey: @"description"];
+		name_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"title"]];
+		description_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"description"]];
 		installedVersion_ = @"";
-		latestVersion_ = [dictionary objectForKey: @"wowaddon:version"];
+		latestVersion_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"wowaddon:version"]];
 		url_ = [[NSURL alloc] initWithString: [dictionary objectForKey: @"guid"]];
 		NSLog(@"Adding URL");
 		NSLog([dictionary objectForKey: @"guid"]);
-		date_ = [dictionary objectForKey: @"pubDate"];
+		date_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"pubDate"]];
 		selectedForInstall_ = false;
 		
 		[self findInstalledVersion];
@@ -83,6 +83,7 @@
 				NSLog(@"ERROR: regex failure on changelog version extraction");
 			}
 			NSLog(version);
+			[regex release];
 		}
 		i++;
 	}
