@@ -274,7 +274,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 333}, {186, 692}}</string>
+							<string>{{0, 354}, {186, 692}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -293,7 +293,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>1887 169 976 751 1680 26 1280 1024 </string>
+						<string>1855 161 976 751 1680 26 1280 1024 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -323,7 +323,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2216D2360C9FBA2400C35433</string>
+										<string>2232C10B0C9FDA86008B5EB2</string>
 										<key>history</key>
 										<array>
 											<string>22232A1E0B4352DC00F75602</string>
@@ -343,10 +343,10 @@
 											<string>223A3D230C9D4CFD000CE798</string>
 											<string>223A3D3A0C9D5804000CE798</string>
 											<string>2216D22B0C9FBA2400C35433</string>
-											<string>2216D22C0C9FBA2400C35433</string>
-											<string>2216D22D0C9FBA2400C35433</string>
-											<string>2216D22E0C9FBA2400C35433</string>
-											<string>2216D22F0C9FBA2400C35433</string>
+											<string>22AE34D30C9FDA4400509629</string>
+											<string>22AE34D40C9FDA4400509629</string>
+											<string>22AE34D50C9FDA4400509629</string>
+											<string>22AE34D90C9FDA4400509629</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -371,12 +371,6 @@
 											<string>22ECBD270BE8E894007F6AD8</string>
 											<string>2220438E0C37044F0035F5BA</string>
 											<string>223A3C4D0C9BCCB5000CE798</string>
-											<string>2216D2300C9FBA2400C35433</string>
-											<string>2216D2310C9FBA2400C35433</string>
-											<string>2216D2320C9FBA2400C35433</string>
-											<string>2216D2330C9FBA2400C35433</string>
-											<string>2216D2340C9FBA2400C35433</string>
-											<string>2216D2350C9FBA2400C35433</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -390,7 +384,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {768, 514}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1887 169 976 751 1680 26 1280 1024 </string>
+								<string>1855 161 976 751 1680 26 1280 1024 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -410,7 +404,7 @@
 								<key>Frame</key>
 								<string>{{0, 519}, {768, 191}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1887 169 976 751 1680 26 1280 1024 </string>
+								<string>1855 161 976 751 1680 26 1280 1024 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -434,9 +428,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2216D20F0C9FAD8B00C35433</string>
+				<string>2232C1060C9FDA67008B5EB2</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2216D2100C9FAD8B00C35433</string>
+				<string>2232C1070C9FDA67008B5EB2</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -575,7 +569,7 @@
 		<string>/Users/kismith/devel/macaceupdater/mainline-google/MacAceUpdater.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>1887 169 976 751 1680 26 1280 1024 </string>
+	<string>1855 161 976 751 1680 26 1280 1024 </string>
 	<key>WindowTools</key>
 	<array>
 		<dict>
@@ -652,7 +646,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2269BB190B407FB800FF55BB</string>
-				<string>2216D2370C9FBA2400C35433</string>
+				<string>2232C1080C9FDA67008B5EB2</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -1022,9 +1016,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>2216D2110C9FAD8B00C35433</string>
+				<string>2232C1090C9FDA67008B5EB2</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>2216D2120C9FAD8B00C35433</string>
+				<string>2232C10A0C9FDA67008B5EB2</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>

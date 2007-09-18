@@ -48,6 +48,7 @@
 	
 	
 	[pluginList setDataSource:[pluginManager_ pluginList]];
+  [pluginList setDelegate:[pluginManager_ pluginList]];
 	
 	
 	[self markedUpdate];
@@ -61,11 +62,8 @@
 	[self checkAddonsDirExists];
 	[self statusUpdate:@"Ready"];
 	
-	// Set the default sort to the name column (thanks rjenkins).
-	NSSortDescriptor *mySorter = [[NSSortDescriptor alloc] initWithKey:@"name" ascending: YES];
-	[pluginList setSortDescriptors:[NSArray arrayWithObject: mySorter]];
-	[mySorter release];
-	
+  // This is a little hacky, can't think of a better way to do it offhand
+  [[pluginManager_ pluginList] tableView:pluginList didClickTableColumn:[pluginList tableColumnWithIdentifier:@"name"]];	
 }
 
 - (BOOL)checkAddonsDirExists

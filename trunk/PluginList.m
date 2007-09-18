@@ -33,11 +33,13 @@
 
 - (PluginList*) init
 {
-	[super init];
-	plugins_ = [[NSMutableArray alloc] initWithCapacity:1000];
-	activeSet_ = nil;
-	subSet_ = nil;
-	[self searchPluginsForString:@""];
+  if (self = [super init])
+  {
+    plugins_ = [[NSMutableArray alloc] initWithCapacity:1000];
+    activeSet_ = nil;
+    subSet_ = nil;
+    [self searchPluginsForString:@""];    
+  }
 	return self;
 }
 
@@ -237,6 +239,31 @@
 {
  	[plugins_ sortUsingDescriptors:[tableView sortDescriptors]];
  	[tableView reloadData];
+}
+
+- (void)tableView: (NSTableView *) tableView didClickTableColumn: (NSTableColumn *) tableColumn {
+  if (sortedColumn_ == tableColumn) {
+    sortDescending_ = !sortDescending_;
+  } else {
+    sortDescending_ = NO;
+    if (sortedColumn_) {
+      //the graphics ore from undocumented methods
+      //FIXME: I'd rather not use these
+      [tableView setIndicatorImage: nil inTableColumn: sortedColumn_];
+      [sortedColumn_ release];
+    }
+    sortedColumn_ = [tableColumn retain];
+    [tableView setHighlightedTableColumn: tableColumn];
+  }
+  
+  // this graphics trick is an undocumented method
+  [tableView setIndicatorImage: (sortDescending_ ?
+                                 [NSTableView _defaultTableHeaderReverseSortImage] :
+                                 [NSTableView _defaultTableHeaderSortImage])
+                 inTableColumn: tableColumn];
+
+  NSArray *sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:[sortedColumn_ identifier] ascending:!sortDescending_]];
+  [tableView setSortDescriptors:sortDescriptors];
 }
 
 @end
