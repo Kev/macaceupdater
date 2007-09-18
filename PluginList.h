@@ -43,8 +43,8 @@
     forTableColumn:(NSTableColumn *)aTableColumn
     row:(int)rowIndex;
 
-- (void)tableView: (NSTableView *) tableView
-    didClickTableColumn: (NSTableColumn *) tableColumn;
+
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray *)oldDescriptors;	
 
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView;

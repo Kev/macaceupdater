@@ -29,14 +29,14 @@
 
 	self = [super init];
 	if (self != nil) {
-		name_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"title"]];
-		description_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"description"]];
+		name_ = [[dictionary objectForKey: @"title"] retain];
+		description_ = [[dictionary objectForKey: @"description"] retain];
 		installedVersion_ = @"";
-		latestVersion_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"wowaddon:version"]];
-		url_ = [[NSURL alloc] initWithString: [dictionary objectForKey: @"guid"]];
+		latestVersion_ = [[dictionary objectForKey: @"wowaddon:version"] retain];
+		url_ = [[dictionary objectForKey: @"guid"] retain];
 		NSLog(@"Adding URL");
 		NSLog([dictionary objectForKey: @"guid"]);
-		date_ = [[NSString alloc] initWithString: [dictionary objectForKey: @"pubDate"]];
+		date_ = [[dictionary objectForKey: @"pubDate"] retain];
 		selectedForInstall_ = false;
 		
 		[self findInstalledVersion];
@@ -206,8 +206,7 @@
 	[scanner scanString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanUpToString:@"" intoString:&bareFileName];
 	NSString* zipFileName = [[downloads stringByAppendingString:bareFileName] retain];
-	NSLog(@"Downloading file ");
-	NSLog([url_ absoluteString]);
+	NSLog([@"Downloading file " stringByAppendingString:[url_ absoluteString]]);
 	NSLog([@"To " stringByAppendingString:zipFileName]);
 	if ([UrlGrabber getPage:url_ toFile:zipFileName] == YES) {
 		return [zipFileName autorelease];
