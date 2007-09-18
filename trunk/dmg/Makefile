@@ -19,9 +19,13 @@
 ################################################################################
 
 NAME=MacAceUpdater
-VERSION=0.5-devel_$(shell date +"%Y%m%d")
+VERSION=0.5.1-devel_$(shell date +"%Y%m%d")
+#VERSION=0.5
 
-SOURCE_DIR=../build/Debug
+TYPE=Release
+#TYPE=Debug
+
+SOURCE_DIR=../build/$(TYPE)
 SOURCE_FILES=MacAceUpdater.app # README COPYING
 
 TEMPLATE_DMG=template.dmg

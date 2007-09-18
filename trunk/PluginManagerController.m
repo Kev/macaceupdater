@@ -61,7 +61,10 @@
 	[self checkAddonsDirExists];
 	[self statusUpdate:@"Ready"];
 	
-	
+	// Set the default sort to the name column (thanks rjenkins).
+	NSSortDescriptor *mySorter = [[NSSortDescriptor alloc] initWithKey:@"name" ascending: YES];
+	[pluginList setSortDescriptors:[NSArray arrayWithObject: mySorter]];
+	[mySorter release];
 	
 }
 
