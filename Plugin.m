@@ -139,6 +139,19 @@
 	return selectedForInstall_;
 }
 
+- (id)valueForUndefinedKey:(NSString *)key
+{
+  if ([key isEqualToString:@"latest"])
+  {
+    return [self latestVersion];
+  }
+  else if ([key isEqualToString:@"installed"])
+  {
+    return [self installedVersion];
+  }
+  return nil;
+}
+
 - (void) setSelectedForInstall:(bool) selected
 {
 	selectedForInstall_ = selected;
@@ -149,14 +162,11 @@
 	if ([installedVersion_ isEqualToString:@""]) {
 		//no version is installed, so no reason to upgrade
 	} else {
-        NSMutableString *latestToDouble = [[self latestVersion] mutableCopy];
-        NSMutableString *installedToDouble = [[self installedVersion] mutableCopy];
-        NSRange range = {0, 1};
-        [latestToDouble deleteCharactersInRange:range];
-        [installedToDouble deleteCharactersInRange:range];
-        double latestDouble = [latestToDouble doubleValue];
-        double installedDouble = [installedToDouble doubleValue];
+    double latestDouble = [[self latestVersion] doubleValue];
+    double installedDouble = [[self installedVersion] doubleValue];
+
 		if (installedDouble >= latestDouble) {
+      NSLog(@"%f %f", installedDouble, latestDouble);
 			//We already have the latest version
 		} else {
 			[self setSelectedForInstall:true];
