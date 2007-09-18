@@ -34,6 +34,8 @@
 
 - (Plugin*) initFromDictionary:(NSDictionary*)dictionary;
 - (NSString*) name;
+//these two methods are identical: the description is a duplicate to allow easier sorting
+- (NSString*) description;
 - (NSString*) pluginDescription;
 - (NSString*) latestVersion;
 - (NSString*) installedVersion;

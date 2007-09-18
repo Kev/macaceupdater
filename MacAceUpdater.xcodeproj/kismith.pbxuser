@@ -13,7 +13,7 @@
 		fRef = 221A03E30B3F3FA9002965D4 /* Plugin.m */;
 		name = "Plugin.m: 209";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6557;
 		rType = 0;
 		vrLen = 1547;
 		vrLoc = 5582;
@@ -38,9 +38,9 @@
 	};
 	221A01530B3F14B2002965D4 /* PluginList.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {914, 3402}}";
-			sepNavSelRange = "{1260, 0}";
-			sepNavVisRect = "{{0, 2920}, {727, 482}}";
+			sepNavIntBoundsRect = "{{0, 0}, {914, 3780}}";
+			sepNavSelRange = "{7472, 26}";
+			sepNavVisRect = "{{0, 3298}, {727, 482}}";
 			sepNavWindowFrame = "{{591, 101}, {1034, 859}}";
 		};
 	};
@@ -54,16 +54,16 @@
 	221A03E20B3F3FA9002965D4 /* Plugin.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {727, 784}}";
-			sepNavSelRange = "{1591, 0}";
-			sepNavVisRect = "{{0, 291}, {727, 482}}";
+			sepNavSelRange = "{1125, 0}";
+			sepNavVisRect = "{{0, 288}, {727, 482}}";
 			sepNavWindowFrame = "{{650, 119}, {750, 558}}";
 		};
 	};
 	221A03E30B3F3FA9002965D4 /* Plugin.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {872, 4060}}";
-			sepNavSelRange = "{6563, 0}";
-			sepNavVisRect = "{{0, 2678}, {727, 482}}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 4200}}";
+			sepNavSelRange = "{6302, 0}";
+			sepNavVisRect = "{{0, 2752}, {727, 482}}";
 			sepNavWindowFrame = "{{109, 355}, {750, 558}}";
 		};
 	};
@@ -123,7 +123,7 @@
 		delayBeforeContinue = 0;
 		hitCount = 1;
 		location = libSystem.B.dylib;
-		modificationTime = 211634901.755996;
+		modificationTime = 211803435.810963;
 		state = 1;
 		symbolName = szone_error;
 	};
@@ -254,7 +254,7 @@
 		fRef = 221A03E20B3F3FA9002965D4 /* Plugin.h */;
 		name = "Plugin.h: 50";
 		rLen = 0;
-		rLoc = 1591;
+		rLoc = 1585;
 		rType = 0;
 		vrLen = 958;
 		vrLoc = 809;
@@ -569,9 +569,9 @@
 	};
 	22C8C8B20B3EEB6500B29632 /* PluginManagerController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1010, 6188}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1010, 6160}}";
 			sepNavSelRange = "{1792, 0}";
-			sepNavVisRect = "{{0, 379}, {727, 482}}";
+			sepNavVisRect = "{{0, 681}, {727, 482}}";
 			sepNavWindowFrame = "{{38, 294}, {750, 558}}";
 		};
 	};

@@ -116,10 +116,16 @@
 	return url_;
 }
 
-- (NSString*) pluginDescription
+- (NSString*) description
 {
 	//return @"myDesc";
 	return description_;
+}
+
+- (NSString*) pluginDescription
+{
+	//return @"myDesc";
+	return [self description];
 }
 
 - (NSString*) latestVersion
