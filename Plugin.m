@@ -33,9 +33,8 @@
 		description_ = [[dictionary objectForKey: @"description"] retain];
 		installedVersion_ = @"";
 		latestVersion_ = [[dictionary objectForKey: @"wowaddon:version"] retain];
-		url_ = [[dictionary objectForKey: @"guid"] retain];
-		NSLog(@"Adding URL");
-		NSLog([dictionary objectForKey: @"guid"]);
+		url_ = [[NSURL URLWithString:[dictionary objectForKey:@"guid"]] retain];
+		NSLog(@"Adding URL %@",[dictionary objectForKey:@"guid"]);
 		date_ = [[dictionary objectForKey: @"pubDate"] retain];
 		selectedForInstall_ = false;
 		
@@ -43,6 +42,17 @@
 	}
 	
 	return self;
+}
+
+- (void) dealloc
+{
+	[name_ release]; name_ = NULL;
+	[description_ release]; description_ = NULL;
+	[latestVersion_ release]; latestVersion_ = NULL;
+	[url_ release]; url_ = NULL;
+	[date_ release]; date_ = NULL;
+	
+	[super dealloc];
 }
 
 - (void) findInstalledVersion
@@ -75,7 +85,7 @@
 		if ( [changelog rangeOfString:@"macaceupdater-version-"].location != NSNotFound ) {
 			NSLog(@"Found mau version:");
 			NSLog(changelog);
-			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"macaceupdater-version-(.+)\.txt" options:AGRegexCaseInsensitive]; 
+			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"macaceupdater-version-(.+)\\.txt" options:AGRegexCaseInsensitive]; 
 			AGRegexMatch *match = [regex findInString:changelog];
 			if ([match count] == 2) { 
 				version = [match groupAtIndex:1];
@@ -89,7 +99,7 @@
 		if ( [changelog rangeOfString:@"changelog-"].location != NSNotFound ) {
 			NSLog(@"Found changelog:");
 			NSLog(changelog);
-			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"changelog.*-r(.+)\.txt" options:AGRegexCaseInsensitive]; 
+			AGRegex *regex = [[AGRegex alloc] initWithPattern:@"changelog.*-r(.+)\\.txt" options:AGRegexCaseInsensitive]; 
 			AGRegexMatch *match = [regex findInString:changelog];
 			if ([match count] == 2) { 
 				version = [match groupAtIndex:1];
@@ -186,7 +196,7 @@
 	NSString* pluginDirName = [NSString stringWithString:[PluginManager addonDir]];
 	pluginDirName = [pluginDirName stringByAppendingString:[self name]];
 	pluginDirName = [pluginDirName stringByAppendingString:@"/"];
-	return [pluginDirName autorelease];
+	return pluginDirName;
 }
 
 - (BOOL) backupTo:(NSString*) backups
@@ -207,7 +217,7 @@
 	NSLog([@"Downloading to folder: " stringByAppendingString:downloads ]);
 	BOOL isDirectory;
 	if (![[NSFileManager defaultManager] fileExistsAtPath: downloads isDirectory:&isDirectory ]) {
-		NSLog(@"Download directory doesn't exist, creating");
+		NSLog(@"Download directory doesn't exist, creating path: %@",downloads);
 		[[NSFileManager defaultManager] createDirectoryAtPath: downloads attributes: nil];
 	}
 	if (!([[NSFileManager defaultManager] fileExistsAtPath: downloads isDirectory:&isDirectory ] && isDirectory)) {
@@ -221,11 +231,11 @@
 	[scanner scanUpToString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanString:[name_ stringByAppendingString:@"/"] intoString:nil];
 	[scanner scanUpToString:@"" intoString:&bareFileName];
-	NSString* zipFileName = [[downloads stringByAppendingString:bareFileName] retain];
+	NSString* zipFileName = [downloads stringByAppendingString:bareFileName];
 	NSLog([@"Downloading file " stringByAppendingString:[url_ absoluteString]]);
 	NSLog([@"To " stringByAppendingString:zipFileName]);
 	if ([UrlGrabber getPage:url_ toFile:zipFileName] == YES) {
-		return [zipFileName autorelease];
+		return zipFileName;
 	}
 	return @"";
 }
@@ -236,7 +246,7 @@
 	NSLog([@"Trying to install plugin: " stringByAppendingString:name_ ]);
 	//The order is important here so as not to lose AddOns if the download fails.
 	//First download it, and abort if it fails
-	NSString* downloadedArchive=[[self downloadLatest] retain];
+	NSString* downloadedArchive=[self downloadLatest];
 	if ([downloadedArchive isEqualToString:@""]) {
 		return NO;
 	}
@@ -275,7 +285,6 @@
 		return NO;
 	}
 	[unzipTask release];
-	[downloadedArchive release];
 	
 	NSString* versionFile=nil;
 	versionFile = [NSString stringWithString:[PluginManager addonDir]];

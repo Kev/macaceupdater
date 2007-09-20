@@ -164,15 +164,18 @@
 	
 	PluginList *plugins = [pluginManager_ pluginList];
 	while (i < [plugins count]) {
-		if ([[plugins objectAtIndex:i] selectedForInstall]) {
-			NSString* text=[[@"Installing plugin: " stringByAppendingString:[[plugins objectAtIndex:i] name]] stringByAppendingString:@"\n"];
+		id currentPlugin = [plugins objectAtIndex:i];
+		if ([currentPlugin selectedForInstall]) {
+			NSAssert([[currentPlugin url] isKindOfClass: [NSURL class]],@"Current Plugin should have a url");
+			NSLog(@"Attempting to install plugin using URL %@",[currentPlugin url]);
+			NSString* text=[[@"Installing plugin: " stringByAppendingString:[currentPlugin name]] stringByAppendingString:@"\n"];
 			[progressText setEditable:true];
 			[progressText insertText:text];
 			[progressText setEditable:false];
 	
 			[self statusUpdate:text];
-			BOOL success = [[plugins objectAtIndex:i] installWithBackupTo:backups];
-			[[plugins objectAtIndex:i] findInstalledVersion];
+			BOOL success = [currentPlugin installWithBackupTo:backups];
+			[currentPlugin findInstalledVersion];
 			attempted++;
 			if (success == YES) {
 				text=@"Plugin Installation: Complete\n";
@@ -283,6 +286,7 @@
 	[pluginList reloadData];
 }
 
+/* PluginList doesn't implement this yet, so don't call it
 - (IBAction)selectAll:(id)sender
 {
 	[[pluginManager_ pluginList] selectAll];
@@ -306,6 +310,8 @@
 	[[pluginManager_ pluginList] searchPluginsForString:@""];
 	[pluginList reloadData];
 }
+
+*/
 
 - (void)setupToolbar
 {
@@ -338,7 +344,7 @@
 
 - (IBAction)resetProperties:(id)sender
 {
-	[preferencesListURL setStringValue:[[pluginManager_ listURL] absoluteURL]];
+	[preferencesListURL setStringValue:[[pluginManager_ listURL] absoluteString]];
 	[preferencesAddOnsDir setStringValue:[PluginManager addonDir]];
 }
 

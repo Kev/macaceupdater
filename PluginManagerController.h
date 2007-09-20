@@ -49,9 +49,9 @@
 - (IBAction)resetProperties:(id)sender;
 - (IBAction)addonsBrowse:(id)sender;
 - (IBAction)selectOutdated:(id)sender;
-- (IBAction)selectAll:(id)sender;
-- (IBAction)selectNone:(id)sender;
-- (IBAction)selectInvert:(id)sender;
+//- (IBAction)selectAll:(id)sender;
+//- (IBAction)selectNone:(id)sender;
+//- (IBAction)selectInvert:(id)sender;
 - (void) doInit;
 - (void) markedUpdate;
 - (void) statusUpdate:(NSString*)status;
