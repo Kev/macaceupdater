@@ -20,9 +20,11 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <Growl/Growl.h>
 
 
-@interface Notifications : NSObject {
+@interface Notifications : NSObject <GrowlApplicationBridgeDelegate>
+{
 
 }
 
