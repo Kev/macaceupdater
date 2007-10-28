@@ -48,6 +48,15 @@ Notes
 
 Changes
 -------
+  New in 0.5.1
+  - Sorting should now work.
+  - Assorted bugfixes.
+  
+  New in 0.5
+  - Local cacheing of versions.
+  - Support for point-versions.
+  - RSS Feed parsing.
+  
   New in 0.4
   - The preferences dialog now allows browsing to the addons dir, and no
     longer requires the user to enter a trailing delimiter ('/')

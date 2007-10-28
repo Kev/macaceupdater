@@ -19,8 +19,8 @@
 ################################################################################
 
 NAME=MacAceUpdater
-VERSION=0.5.1-devel_$(shell date +"%Y%m%d")
-#VERSION=0.5
+#VERSION=0.5.1-devel_$(shell date +"%Y%m%d")
+VERSION=0.5.1
 
 TYPE=Release
 #TYPE=Debug
