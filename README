@@ -1,4 +1,4 @@
-MacAceUpdater 0.4.0 
+MacAceUpdater 0.5.2 
 -----------------
 Date: July 1st 2007
 
@@ -41,13 +41,17 @@ Known Issues
 
 Notes
 -----
-  This is an early release of a private project - it is entirely possible 
+  This is a pre-1.0 release - it is entirely possible 
   and even likely that things will go wrong in ways I haven't even imagined.
   Do not deploy on critical systems, whatever that means to you, and make
   sure you have recent backups, especially of your AddOns directory.
 
 Changes
 -------
+  New in 0.5.2
+  - Leopard support
+  
+  
   New in 0.5.1
   - Sorting should now work.
   - Assorted bugfixes.

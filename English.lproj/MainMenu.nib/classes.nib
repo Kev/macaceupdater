@@ -1,46 +1,86 @@
-{
-    IBClasses = (
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = NSLevelIndicator; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
-        {CLASS = Plugin; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = PluginList; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = PluginManager; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {
-            ACTIONS = {
-                InstallPlugins = id; 
-                RescanPlugins = id; 
-                UninstallPlugins = id; 
-                addonsBrowse = id; 
-                applyProperties = id; 
-                initialiseGUI = id; 
-                resetProperties = id; 
-                selectAll = id; 
-                selectInvert = id; 
-                selectNone = id; 
-                selectOutdated = id; 
-            }; 
-            CLASS = PluginManagerController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                mainWindow = id; 
-                markedCount = NSTextField; 
-                pluginList = NSTableView; 
-                preferencesAddOnsDir = id; 
-                preferencesListURL = id; 
-                prefsWindow = id; 
-                progressText = NSTextView; 
-                searchItemView = NSSearchField; 
-                statusText = NSTextField; 
-            }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {
-            ACTIONS = {checkForUpdates = id; }; 
-            CLASS = SUUpdater; 
-            LANGUAGE = ObjC; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {CLASS = UrlGrabber; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>InstallPlugins</key>
+				<string>id</string>
+				<key>RescanPlugins</key>
+				<string>id</string>
+				<key>UninstallPlugins</key>
+				<string>id</string>
+				<key>addonsBrowse</key>
+				<string>id</string>
+				<key>applyProperties</key>
+				<string>id</string>
+				<key>initialiseGUI</key>
+				<string>id</string>
+				<key>resetProperties</key>
+				<string>id</string>
+				<key>selectAll</key>
+				<string>id</string>
+				<key>selectInvert</key>
+				<string>id</string>
+				<key>selectNone</key>
+				<string>id</string>
+				<key>selectOutdated</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PluginManagerController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>mainWindow</key>
+				<string>id</string>
+				<key>markedCount</key>
+				<string>NSTextField</string>
+				<key>pluginList</key>
+				<string>NSTableView</string>
+				<key>preferencesAddOnsDir</key>
+				<string>id</string>
+				<key>preferencesListURL</key>
+				<string>id</string>
+				<key>prefsWindow</key>
+				<string>id</string>
+				<key>progressText</key>
+				<string>NSTextView</string>
+				<key>searchItemView</key>
+				<string>NSSearchField</string>
+				<key>statusText</key>
+				<string>NSTextField</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>checkForUpdates</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>SUUpdater</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>
