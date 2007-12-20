@@ -406,6 +406,7 @@
 		[item setView:searchItemView];
 		[item setMinSize:fRect.size];
 		[item setMaxSize:fRect.size];
+		//We should make this a placeholder
     }
     return [item autorelease];
 }
